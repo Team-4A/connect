@@ -9,7 +9,7 @@
 
 Connect is a web application to connect any service provider in the world with any one seeking for service, It provides 
 very easy way for companies to propose their work and services to the users,also the users can be connected to any company
-they want to get service from, we will guarantee the user's rights by forcing any service provider to upload his commercial record image and his identity card so that we can save the user rights in case that the service provider was a mock company or spammer
+they want to get service from, we will guarantee the user's rights by forcing any service provider to upload his commercial record image and his identity card so that we can save the user rights in case that the service provider was a mock company.
 
 
 MVP : 
