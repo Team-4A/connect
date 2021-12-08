@@ -33,3 +33,43 @@ Future Goal:
 * Build Chatting tool to allow the user to communicate with the company on our web application.
 * Build a secure tool to allow money transferring in an out of our web application
 * Build a tool for video chatting only for job seekers.
+
+# Getting Started:
+
+Clone this repository to your local machine. [https://github.com/Pythonaholic-Team/connect]()
+
+Then type `poetry install` to install all of the dependencies needed.
+
+Load up the project using your favorite IDE.
+
+# User Stories
+
+The stories of Connect are managed in a project managment system called trello.
+
+**Link for Project managment system** : [Link](https://trello.com/b/3Xk9LJrl/pythonaholic)
+
+# Software Requirements
+
+The Software requirements are mentioned with vision , scope , MVP and functional and non-functional requirements.
+
+**Link for Software Requirements** : [Link](requirements.md)
+
+# Domain Modeling
+
+**The Model of domain defined as module based system as the following :**
+
+![Domain Model]()
+
+# References
+* 
+
+# Technologies Used:
+* Python
+* Visual Studio Code 
+* Trello
+* Nextjs
+* Django 
+* Tailwindcss
+# Change log:
+
+Version 0.1.0 : initial project version
