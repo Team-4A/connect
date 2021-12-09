@@ -58,10 +58,21 @@ The Software requirements are mentioned with vision , scope , MVP and functional
 
 **The Model of domain defined as module based system as the following :**
 
-![Domain Model]()
+
+![Domain Model](assets/domainmodeling.png)
+
+# WireFrames
+
+**Link for project wireframes** : [Link](wireframes.md)
 
 # References
-* 
+* [W3school](https://www.w3schools.com/)
+* [MDN](https://developer.mozilla.org/en-US/)
+* [StackOverFlow](https://stackoverflow.com/)
+* [Nextjs](https://nextjs.org/docs/getting-started)
+* [Django](https://docs.djangoproject.com/en/4.0/)
+* [Tailwind](https://tailwindui.com/documentation)
+
 
 # Technologies Used:
 * Python
