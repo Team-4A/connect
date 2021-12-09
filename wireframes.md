@@ -1,16 +1,22 @@
 
 # Connect Wireframes
 ## Pre-login Page Wireframe
-![prelogin](assets/connectprelogin.png)
+![prelogin](assets/signin.png)
 
+
+## Company(service provider) sign up
+
+![serviceproviderprofile](assets/signup-company.png)
+
+
+## User sign up
+
+![serviceproviderprofile](assets/user-signup.png)
 ## Service provider profile Wireframe
-![serviceproviderprofile](assets/connectserviceproviderprofile.png)
+![serviceproviderprofile](assets/company-profile.png)
 
 ## User profile Wireframe
-![userprofile](assets/connectuserprofile.png)
-
-## Complaints page Wireframe
-![complaint](assets/connectcomplaint.png)
+![userprofile](assets/user-profile.png)
 
 ## Explore page Wireframe
-![explore](assets/connectexplore.png)
+![explore](assets/Explor.png)
