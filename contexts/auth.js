@@ -21,22 +21,34 @@ export function AuthProvider(props) {
         logout,
     });
 
-    async function login(email, password) {
+    async function login(email, password,changeState) {
+        try{
+            const response = await axios.post(tokenUrl, { email, password });
 
-        const response = await axios.post(tokenUrl, { email, password });
+            const decodedAccess = jwt.decode(response.data.access);
+            const newState = {
+                tokens: response.data,
+                user: {
+                   
+                    email: decodedAccess.email,
+                    password: decodedAccess.password,
+                    
+                },
+            }
+            changeState(1)
 
-        const decodedAccess = jwt.decode(response.data.access);
-        const newState = {
-            tokens: response.data,
-            user: {
-               
-                email: decodedAccess.email,
-                password: decodedAccess.password,
-                
-            },
+    
+            setState(prevState => ({ ...prevState, ...newState }));
+
+
+        }catch(err){
+            console.log('your not authenticated');
+            changeState(state=>state+2)
+            return false
+
         }
 
-        setState(prevState => ({ ...prevState, ...newState }));
+
     }
 
     function logout() {
