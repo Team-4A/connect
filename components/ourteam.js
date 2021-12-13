@@ -4,7 +4,7 @@ const products = [
     name: "Adham Mhadydat",
     href: "https://www.linkedin.com/in/adham-mhaydat/",
     imageSrc:
-      "https://media-exp1.licdn.com/dms/image/C4D03AQHpC7zJLtxwXw/profile-displayphoto-shrink_400_400/0/1591730411849?e=1645056000&v=beta&t=LrbehhUM7ARmSwJbC0_6mdP9Qgw7_KTGIggKuAaQ9V4",
+      "https://avatars.githubusercontent.com/u/60987528?v=4",
     imageAlt: "Front of men's Basic Tee in black.",
     color: "Full Stack Developer",
   },
@@ -13,7 +13,7 @@ const products = [
     name: "Ahmad Al-Rasheed",
     href: "https://www.linkedin.com/in/ahmad-alrasheed/",
     imageSrc:
-      "https://media-exp1.licdn.com/dms/image/D4E35AQF53Yi3VdxC1g/profile-framedphoto-shrink_800_800/0/1638126315390?e=1639497600&v=beta&t=jfjxeqTyKg9FfIhT4qQeYB1OkKg1SqUYqrC-UbzDdVs",
+      "https://avatars.githubusercontent.com/u/73361566?v=4",
     color: "Full Stack Developer",
   },
   {
@@ -21,7 +21,7 @@ const products = [
     name: "Ashraf Obeidat",
     href: "#",
     imageSrc:
-      "https://pbs.twimg.com/profile_images/758084549821730820/_HYHtD8F_400x400.jpg",
+      "https://avatars.githubusercontent.com/u/47212851?v=4",
     color: "Full Stack Developer",
   },
   {
@@ -36,17 +36,17 @@ const products = [
 
 export default function Example() {
   return (
-    <div className="bg-gradient-to-r from-violet-300 to-violet-700 text-zinc-50 ">
+    <div className="h-fit bg-gradient-to-r from-violet-300 to-violet-700 text-zinc-50 ">
       <link
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
         rel="stylesheet"
       />
-      <div className="max-w-2xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+      <div className="max-w-2xl px-4 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-extrabold tracking-tight text-center ">
           Connect Team
         </h2>
 
-        <div className="grid grid-cols-1 mt-6 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
+        <div className="grid grid-cols-1 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 ">
           {products.map((product) => (
             <div key={product.id} className="relative group ">
               <div className="wrapper ">
