@@ -15,35 +15,35 @@ export default function Explore() {
   const [state, setState] = useState([]);
   const [comment, setComment] = useState([]);
   
-  login("adhammohidat123@gmail.com","1qasw23ed")
-  useEffect(() => {
+  // login("adhammohidat123@gmail.com","1qasw23ed")
+  // useEffect(() => {
     
    
-    let config = {
-      method: "get",
-      baseURL: process.env.NEXT_PUBLIC_API_URL,
-      url: "/api/vi/connect/post",
-    };
-    axios(config).then((res) => {
-      console.log(res)
-      let data = res.data;
-      setState(data);
-    });
-  }, []);
+  //   let config = {
+  //     method: "get",
+  //     baseURL: process.env.NEXT_PUBLIC_API_URL,
+  //     url: "/api/vi/connect/post",
+  //   };
+  //   axios(config).then((res) => {
+  //     console.log(res)
+  //     let data = res.data;
+  //     setState(data);
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    let config = {
-      method: "get",
-      baseURL: process.env.NEXT_PUBLIC_API_URL,
-      url:"/api/vi/connect/comment",
+  // useEffect(() => {
+  //   let config = {
+  //     method: "get",
+  //     baseURL: process.env.NEXT_PUBLIC_API_URL,
+  //     url:"/api/vi/connect/comment",
       
-    };
-    axios(config).then((res) => {
-      console.log(res)
-      let data = res.data;
-      setComment(data);
-    });
-  }, []);
+  //   };
+  //   axios(config).then((res) => {
+  //     console.log(res)
+  //     let data = res.data;
+  //     setComment(data);
+  //   });
+  // }, []);
   
   return (
     <div>
