@@ -104,7 +104,7 @@ export default function CompanyCard() {
                </div>
              </div>
 
-             <div className="panel panel-white border-top-pink">
+             {/* <div className="panel panel-white border-top-pink">
                <div className="panel-heading">
                  <h3 className="panel-title">My Tasks</h3>
                  <div className="controls pull-right">
@@ -182,7 +182,7 @@ export default function CompanyCard() {
                    </div>
                  </div>
                </div>
-             </div>
+             </div> */}
            </div>
 
            <div className="col-sm-6">
