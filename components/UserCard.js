@@ -1,6 +1,6 @@
 import Useractivity from "./UserAcivity";
-// import PreviousOffers from '../components/previous_offers'
-export default function CompanyCard1() {
+import PreviousOffers from '../components/previous_offers'
+export default function UserCard1() {
   return (
     <>
       <link
@@ -287,7 +287,7 @@ export default function CompanyCard1() {
 
                   <div className="panel panel-white border-top-blue">
                     <div className="panel-heading">
-                      <h3 className="panel-title"></h3>
+                      <h3 className="panel-title">< PreviousOffers/></h3>
 
                       <div className="controls pull-right">
                         <span className="pull-right clickable">
