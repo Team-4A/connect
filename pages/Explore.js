@@ -15,7 +15,7 @@ export default function Explore() {
   const [state, setState] = useState([]);
   const [comment, setComment] = useState([]);
   
-  login("adham@adham.com","adham123")
+  login("adhammohidat123@gmail.com","1qasw23ed")
   useEffect(() => {
     
    
@@ -30,7 +30,7 @@ export default function Explore() {
       setState(data);
     });
   }, []);
-console.log(resources)
+
   useEffect(() => {
     let config = {
       method: "get",
