@@ -194,3 +194,19 @@
 
 }
 
+/*     half circle css*/
+
+.half-circle {
+    width: 200px;
+    height: 100px; /* as the half of the width */
+    background-color: white;
+    border-top-left-radius: 110px;  /* 100px of height + 10px of border */
+    border-top-right-radius: 110px; /* 100px of height + 10px of border */
+    border: 10px solid gray;
+    border-bottom: 0;
+}
+
+.footer {
+  /* background: linear-gradient(to bottom,violet ,white, violet); */
+
+}
