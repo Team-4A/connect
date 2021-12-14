@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../components/header'
-import Post from '../components/Post'
+import Header from './header'
+import Post from './Post'
 
 export default function explore() {
     return (
