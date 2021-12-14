@@ -13,7 +13,8 @@ export default function SignUpPage() {
       let user_data={
         email:e.target.email.value,
         password:e.target.password.value,
-        phonenumber:e.target.phonenumber.value
+        phonenumber:e.target.phonenumber.value,
+        major:e.target.major.value
       }
       console.log(user_data);
       // send_user_data = axios.post('https://reqres.in/api/articles',user_data)
@@ -23,7 +24,8 @@ export default function SignUpPage() {
       let user_data={
         email:e.target.email.value,
         password:e.target.password.value,
-        phonenumber:e.target.phonenumber.value
+        phonenumber:e.target.phonenumber.value,
+        intersts:e.target.interst.value
       }
       console.log(user_data);
       // send_user_data = axios.post('https://reqres.in/api/articles',user_data)

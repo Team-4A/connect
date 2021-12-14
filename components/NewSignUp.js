@@ -51,6 +51,7 @@ export default function SignUpFormForUsers(props) {
               <input type="text" placeholder="Full Name" />
               <input type="text" placeholder="Email" name="email" />
               <input type="password" placeholder="Password" name="password" />
+              <input type="text" placeholder="Major" name="major" />
               <input
                 type="number"
                 placeholder="Mobile Number"
@@ -112,6 +113,7 @@ export default function SignUpFormForUsers(props) {
                 name="phonenumber"
               />
               <input type="password" placeholder="Password" name="password" />
+              <input type="text" placeholder="intersts" name="intersts" />
 
               <button type="submit" value="Sign Up" />
             </div>
