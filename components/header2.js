@@ -1,4 +1,5 @@
 
+import Link from 'next/link'
 export default function Header2(props) {
   return (
     <>
@@ -12,12 +13,12 @@ export default function Header2(props) {
           </a>
             <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
              
-            <a
-            href="/"
+            <Link
+            href="/Explore"
             className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white no-underline hover:text-xl"
           >
             Profile
-          </a>
+          </Link>
           <a
             href="/"
             className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white no-underline hover:text-xl"

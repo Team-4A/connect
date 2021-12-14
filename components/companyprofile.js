@@ -1,7 +1,7 @@
 
-import Header2 from '../components/header2'
+import Header2 from './header2'
 
-import CompanyCard from '../components/companycard'
+import CompanyCard from './companycard'
 
 export default function Header(props) {
     return (

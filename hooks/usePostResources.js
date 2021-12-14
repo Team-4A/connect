@@ -1,25 +1,28 @@
 import axios from 'axios'
 import useSWR from 'swr'
 
-export const apiUrl = process.env.NEXT_PUBLIC_API_URL_HOOKS_POST
-console.log(apiUrl)
+export const apiUrl = process.env.NEXT_PUBLIC_API_URL_HOOKS_POST 
+
 import { useAuth } from '../contexts/auth'
 
-export default function useResource() {
-
-    const { tokens, logout } = useAuth()
-
-    const { data, error, mutate } = useSWR([apiUrl, tokens], fetchResource);
-
-    async function fetchResource(url) {
-
-        if (!tokens) {
+export default function usePostResource() {
+    
+    const { user,logout } = useAuth()
+    const dataUser = JSON.parse(localStorage.getItem("userData"))
+    console.log({dataUser})
+    const token = dataUser.tokens.access
+    console.log({token})
+    const { data, error, mutate } = useSWR([apiUrl, token], fetchResource);
+    
+    async function fetchResource(url,token) {
+        
+        if (!token) {
             return;
         }
 
         try {
-            const response = await axios.get(url, config());
-             console.log(response.data)   
+            const response = await axios.get(url, config(token));
+            console.log("form useResource",response.data)
             return response.data;
 
         } catch (error) {
@@ -55,11 +58,11 @@ export default function useResource() {
 
 
     // helper function to handle getting Authorization headers EXACTLY right
-    function config() {
+    function config(token) {
 
         return {
             headers: {
-                'Authorization': 'Bearer ' + tokens.access
+                'Authorization': 'Bearer ' + token
             }
         }
     }
@@ -75,7 +78,7 @@ export default function useResource() {
     return {
         resources: data,
         error,
-        loading: tokens && !error && !data,
+        loading: token && !error && !data,
         createResource,
         deleteResource,
         updateResource,

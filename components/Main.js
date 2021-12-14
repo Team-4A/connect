@@ -29,10 +29,13 @@ export default function Main() {
           <MyDropDown />
 
           <Menu>
-          <a href="/login" className="inline-flex justify-center py-2 text-sm font-bold text-purple-600 no-underline bg-white border border-gray-300 rounded-md shadow-sm foxtnt-medium w-36 hover:delay-150 hover:rounded-none focus:ring-offset-gray-100 focus:ring-indigo-500">
-                login
+            <a
+              href="/login"
+              className="inline-flex justify-center py-2 text-sm font-bold text-purple-600 no-underline bg-white border border-gray-300 rounded-md shadow-sm foxtnt-medium w-36 hover:delay-150 hover:rounded-none focus:ring-offset-gray-100 focus:ring-indigo-500"
+            >
+              login
             </a>
-            </Menu>
+          </Menu>
         </section>
       </header>
       <div />
