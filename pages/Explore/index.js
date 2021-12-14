@@ -11,9 +11,8 @@ export default function Explore() {
     useEffect(() => {
         console.log( {resources,loading,error}) 
   },[ resources,loading,error])
+
   
-  
-    
        
   
   return (
