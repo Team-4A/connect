@@ -3,6 +3,7 @@ import React ,{useEffect} from "react";
 import Header from "../../components/header2";
 import Post from "../../components/Post";
 import usePostResource from '../../hooks/usePostResources'
+import Header2 from '../../components/header2'
 
 
 export default function Explore() {
@@ -17,14 +18,16 @@ export default function Explore() {
   
   return (
     <div>
-      <Header />
-
+      <Header2 />
+   
       <main className=" bg-slate-300">
         <div className="flex flex-col w-3/5 gap-3 m-auto">
+        {console.log('hiiiiiiiiiiiiiiiiiiii',resources)}
           {resources &&
             resources.map((ele, idx) => {
               return (
                   <>
+                  
                    <div className="flex " > <Post body={ele.body} creator={ele.creator} created_at={ele.created_at} id={ele.id} data={ele}/> </div>
                    </>
               
