@@ -82,6 +82,7 @@ export default function usePostResource() {
         createResource,
         deleteResource,
         updateResource,
+        fetchResource,
     }
 }
 
