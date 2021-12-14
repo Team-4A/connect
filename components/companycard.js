@@ -1,5 +1,5 @@
 
-export default function CompanyCard() {
+export default function CompanyCard({userData}) {
     return (
       <>
          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -22,7 +22,7 @@ export default function CompanyCard() {
                      {/* <!-- END profile-header-img -->
                      <!-- BEGIN profile-header-info --> */}
                      <div class="profile-header-info">
-                        <h4 class="m-t-10 m-b-5">Sean Ngu</h4>
+                        <h4 class="m-t-10 m-b-5">{userData.username}</h4>
                         <p class="m-b-10">UXUI + Frontend Developer</p>
                         <a href="#" class="btn btn-sm btn-info mb-2">Edit Profile</a>
                      </div>
@@ -70,8 +70,7 @@ export default function CompanyCard() {
                               </div>
                               <div class="timeline-content">
                                  <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
-                                    Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
+                                 {userData.username}{userData.email}
                                  </p>
                               </div>
                               <div class="timeline-likes">

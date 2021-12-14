@@ -7,7 +7,8 @@ import {useAuth} from "../contexts/auth";
 export default function Login() {
     const {user, login , logout} = useAuth()
     const { resources, loading, createResource, deleteResource } = useResource();
-    console.log(user)
+    
+    
     return (
  <div>
      <LoginForm user={user} login={login}/>

@@ -1,21 +1,41 @@
 import React from "react";
 import Router from 'next/router';
-export default function LoginForm({login,user}) {
-	function handleLogin(e){
-		e.preventDefault();
-		let data = {
-			email: e.target.email.value,
-      password: e.target.password.value
-		}
-    const res = login(data.email, data.password)
-    if (user.IsAuthenticated){
-      Router.push('/')
-    }else{
-      alert("go and kill ur self")
-    }
-    console.log(res)
+import Link from 'next/link';
+import { useAuth } from "../contexts/auth";
+import { useState,useEffect } from "react";
+import axios from "axios";
+export default function LoginForm({login}) {
+  const {user} = useAuth();
+	const[state,changeState]=useState(0)
+    const [alertstate,ChangeAlertstate] = useState(false)
+
     
-	}
+    
+        
+    const handleLogin = e => {
+        try {
+            e.preventDefault();
+            let login_info = {
+                email: e.target.email.value,
+                password: e.target.password.value,
+            }
+            
+            login(login_info.email, login_info.password,changeState)
+            
+        }catch (err) {
+            console.log('you are not authorized ');
+        }
+    }
+    useEffect(()=>{
+        if (state ==1){
+          
+            Router.push('/controller/')
+        }
+        if(state > 1){
+            ChangeAlertstate(true)
+        }
+    },[state])
+	
   return (
     <div>
       <div class="h-screen md:flex">
@@ -86,12 +106,14 @@ export default function LoginForm({login,user}) {
                 placeholder="Password"
               />
             </div>
+            
             <button
               type="submit"
               class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
             >
               Login
             </button>
+           
             <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer">
               Forgot Password ?
             </span>

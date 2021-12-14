@@ -1,5 +1,5 @@
 import React from 'react'
-import ComplainsForm from '../components/ComplainsForm'
+import ComplainsForm from './ComplainsForm'
 
 export default function complain() {
     return (

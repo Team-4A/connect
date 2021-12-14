@@ -1,6 +1,6 @@
 import Useractivity from '../components/user_activity'
 // import PreviousOffers from '../components/previous_offers'
-export default function CompanyCard() {
+export default function UserCard({userData}) {
    return (
      <>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -23,9 +23,9 @@ export default function CompanyCard() {
                     {/* <!-- END profile-header-img -->
                     <!-- BEGIN profile-header-info --> */}
                     <div class="profile-header-info">
-                       <h4 class="m-t-10 m-b-5">Sean Ngu</h4>
-                       <p class="m-b-10">UXUI + Frontend Developer</p>
-                       <a href="#" class="btn btn-sm btn-info mb-2">Edit Profile</a>
+                       <h4 class="m-t-10 m-b-5">{userData.username}</h4>
+                       <p class="m-b-10">{userData.username}</p>
+                       <a href="#" class="btn btn-sm btn-info mb-2">{userData.username}</a>
                     </div>
                     {/* <!-- END profile-header-info --> */}
                  </div>
@@ -55,14 +55,14 @@ export default function CompanyCard() {
                  </div>
                </div>
                <div class="panel-body">
-                 <div class="body-section">
+                 <div class="body-section"> 
                    <h5 class="section-heading">About</h5>
-                   <p class="section-content">A brief description of you</p>
+                   <p class="section-content">{userData.email}</p>
                  </div>
                  <div class="body-section">
                    <h5 class="section-heading">Introduction</h5>
                    <p class="section-content">
-                     Put a little about yourself here so people know they've
+                     Put a little about yourself  here so people know they've
                      found the correct Kevin.
                    </p>
                  </div>
