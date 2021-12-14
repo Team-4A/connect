@@ -5,32 +5,32 @@ export default function Header2(props) {
     <>
       <div className="bg-purple-600 ">   
           <div className="flex items-center justify-between py-6 md:justify-start ">
-            <a
+            <Link
             href="/"
             className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white no-underline hover:text-xl"
           >
             Connect
-          </a>
+          </Link>
             <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
              
             <Link
-            href="/Explore"
+            href="/controller"
             className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white no-underline hover:text-xl"
           >
             Profile
           </Link>
-          <a
-            href="/"
+          <Link
+            href="/Explore"
             className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white no-underline hover:text-xl"
           >
             Explore
-          </a>
-          <a
+          </Link>
+          <Link
             href="/"
             className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white no-underline hover:text-xl"
           >
             Logout
-          </a>
+          </Link>
             </div>
           </div>
       
