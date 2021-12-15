@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import swal from "sweetalert2";
+import axios from 'axios'
+import useOffersHooks from '../hooks/useOffersHooks'
 
 /// this will store the data coming out from the offer form
 let sentData={
     
 }
-export default function CreateOffer() {
+export default function CreateOffer({body , id , to_company}) {
+  const {resources,createResource} = useOffersHooks()
   const [showModal, setShowModal] = React.useState(false);
   const dateHndler =(e)=>sentData['date'] =e.target.value
   const infoHandler =(e)=>sentData['info'] =e.target.value
+  const titleHandler =(e)=>sentData['title'] =e.target.value
+  const priceHandler =(e)=>sentData['price'] =e.target.value
 
-  const handlClick = () => {
+  const handlClick = async () => {
   
     console.log(sentData);
     setShowModal(false);
@@ -20,6 +25,21 @@ export default function CreateOffer() {
       icon: "success",
       timer: 3000,
     });
+
+    
+    console.log('this is sent data',sentData);
+    
+    let data = {
+      created_at: sentData.date,
+        owner_id: id,
+        to_company:[to_company],
+        title: sentData.title,
+        description:sentData.info,
+        price:parseInt(sentData.price)   
+
+    }
+    console.log('111111111111111111111111',data);
+    createResource(data)
   };
 
   return (
@@ -52,11 +72,7 @@ export default function CreateOffer() {
                 {/*body*/}
                 <div className="relative flex-auto p-6">
                   <p className="my-4 text-lg leading-relaxed text-blueGray-500">
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
+                  {body}
                   </p>
                   <div className="flex flex-col gap-2 offerForm ">
                     <div class="relative">
@@ -70,6 +86,19 @@ export default function CreateOffer() {
                     </div>
 
                     <div class="form-outline">
+                    <label class="form-label">
+                        Title
+                      </label>
+                      <input   name="title" onChange={(e) => titleHandler(e)}/>
+                      <br/>
+                    <label class="form-label" >
+                        Price
+                      </label>
+                      <input   type="number" name="price" onChange={(e) => priceHandler(e)}/>
+                      <br/>
+                    <label class="form-label" for="textAreaExample">
+                        addtional details
+                      </label>
                       <textarea
                         name="addtinal_details"
                         class="form-control"
@@ -77,9 +106,7 @@ export default function CreateOffer() {
                         rows="4"
                         onChange={(e) => infoHandler(e)}
                       ></textarea>
-                      <label class="form-label" for="textAreaExample">
-                        addtional details
-                      </label>
+                 
                     </div>
                   </div>
                 </div>

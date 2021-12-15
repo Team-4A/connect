@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import { Card, CardBody, Avatar, Button, HeartIcon } from "@windmill/react-ui";
 import useCommentResources from "../hooks/useCommentResources";
 import useActiviyResources from "../hooks/useActiviyResources";
@@ -10,14 +11,23 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
 export default function Post({
+  info,
   updatePostResource,
   body,
   creator,
   created_at,
   id,
   likes,
+  
 }) {
   const { createActivityResource } = useActiviyResources();
+
+
+
+
+
+
+
   const [state, setState] = useState([]);
   const [show, setShow] = useState(false);
   const { resources, createResource } = useCommentResources();
@@ -54,6 +64,7 @@ export default function Post({
   const handleClose = () => setShow(false);
   const addComment = () => setShow(true);
 
+
   const HandleLike = () => {
     let data = {
       id: id,
@@ -71,7 +82,12 @@ export default function Post({
   };
 
   return (
+    
+ 
+  
+  
     <div>
+          
       <Card className="rounded-lg ">
         <CardBody className="">
           <div className="flex">
@@ -86,7 +102,9 @@ export default function Post({
                 {state.username}
               </p>
               <p className="text-xs text-gray-500">{created_at}</p>
+             
             </div>
+   <CreateOffer to_company={state.id} body={body} id={userdata.user.id} className="flex justify-end"/>
           </div>
           <p className="my-2 dark:text-black-300">{body}</p>
           <div className="flex items-end justify-between">
@@ -137,6 +155,7 @@ export default function Post({
         </CardBody>
       </Card>
       {/* {show && <addCommentModal show={show} handleClose={handleClose} postid={id}/>} */}
+
       <div>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
@@ -171,5 +190,5 @@ export default function Post({
         </Modal>
       </div>
     </div>
-  );
+ )
 }
