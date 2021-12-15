@@ -58,7 +58,7 @@ export default function SignUpFormForUsers(props) {
       
         <div className="login-info-box">
           <h2>Create Your Account To Connect</h2>
-          <p>Post Your Service</p>
+          <p>Post a Service</p>
           <label id="label-register" htmlFor="log-reg-show">
             Company
           </label>
@@ -120,7 +120,7 @@ export default function SignUpFormForUsers(props) {
                 />
               </div>
 
-              <button type="submit" value="Sign Up" />
+              <button type="submit" value="Sign Up">Sign Up</button>
             </div>
             </form>
           
@@ -144,12 +144,14 @@ export default function SignUpFormForUsers(props) {
               />
               <input type="password" placeholder="Password" name="password" />
 
-              <button type="submit" value="Sign Up" />
+              
+              <button type="submit" value="Sign Up">Sign Up</button>
             </div>
           </form>
         </div>
       </div>
       <script src="/login_form.js"></script>
+      
     </>
   );
 }

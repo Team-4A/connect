@@ -33,3 +33,4 @@ export default function Comment({ comment, created_at, creator }) {
     </div>
   );
 }
+

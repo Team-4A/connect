@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
 import Router from "next/router";
 import Link from "next/link";
 import { CardBody, Avatar, Button, HeartIcon } from "@windmill/react-ui";
@@ -7,6 +8,7 @@ import { CardBody, Avatar, Button, HeartIcon } from "@windmill/react-ui";
 import useCommentResources from "../hooks/useCommentResources";
 import useActiviyResources from "../hooks/useActiviyResources";
 import { Card } from "react-bootstrap";
+
 import Comment from "./Comment";
 import addCommentModal from "./addCommentModal";
 import Modal from "react-bootstrap/Modal";
@@ -14,6 +16,7 @@ import Form from "react-bootstrap/Form";
 import CreateOffer from "./CreateOffer";
 
 export default function Post({
+  
   info,
   updatePostResource,
   body,
@@ -22,13 +25,16 @@ export default function Post({
   id,
   likes,
 }) {
+  const [allUserData,setAllUserData]=useState({})
   const { createActivityResource } = useActiviyResources();
 
   const [state, setState] = useState([]);
   const [counter, setCounter] = useState(0);
   const [show, setShow] = useState(false);
   const { resources, createResource } = useCommentResources();
+
   const [showState, setShowState] = useState(false);
+
   useEffect(() => {
     let config = {
       method: "get",
@@ -45,15 +51,15 @@ export default function Post({
   let userData = JSON.parse(localStorage.getItem("userData"));
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let data = {
+    let data = await {
       comment: e.target.comment.value,
       creator: userData.user.id,
       on_post: [id],
     };
-    createResource(data);
+    await createResource(data);
     let userActivity = {
       type_of_activity: "Comment",
-      user: userData.user.id,
+      user: user.user.id,
       post: [id],
     };
     createActivityResource(userActivity);
@@ -100,6 +106,7 @@ export default function Post({
     ++i;
   };
   return (
+
     <>
       <div className="w-full ">
         {/* <!-- begin timeline-time --> */}
@@ -113,6 +120,7 @@ export default function Post({
                     <!-- begin timeline-icon --> */}
           <div className="timeline-icon">
             <a href="javascript:;">&nbsp;</a>
+
           </div>
           {/* <!-- end timeline-icon -->
                     <!-- begin timeline-body --> */}
@@ -135,6 +143,7 @@ export default function Post({
                 </a>
               </Link>
             </div>
+
             <div className="timeline-content">
               <p>{body}</p>
             </div>
@@ -229,6 +238,7 @@ export default function Post({
                   </div>
                 </form>
               </div>
+
             </div>
           </div>
         </div>

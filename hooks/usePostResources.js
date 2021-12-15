@@ -2,7 +2,7 @@ import axios from 'axios'
 import useSWR from 'swr'
 
 export const apiUrl = process.env.NEXT_PUBLIC_API_URL_HOOKS_POST
-console.log(apiUrl)
+
 import { useAuth } from '../contexts/auth'
 
 export default function usePostResource() {
@@ -33,7 +33,7 @@ export default function usePostResource() {
     async function createPostResource(info) {
 
         try {
-            await axios.post(apiUrl, info, config());
+            await axios.post(apiUrl, info, config(token));
             mutate(); // mutate causes complete collection to be refetched
         } catch (error) {
             handleError(error);

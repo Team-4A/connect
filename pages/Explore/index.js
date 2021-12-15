@@ -44,6 +44,7 @@ export default function Explore() {
           </ul>
         </div>
       </main>
+      
     </div>
   );
 }

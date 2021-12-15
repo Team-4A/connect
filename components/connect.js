@@ -3,47 +3,46 @@ import { AnnotationIcon, GlobeAltIcon, LightningBoltIcon, ScaleIcon } from '@her
 
 const features = [
   {
-    name: 'Competitive exchange rates',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    name: 'Shorten The Distances',
+    // description:
+    //   'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
     icon: GlobeAltIcon,
   },
   {
-    name: 'No hidden fees',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    name: 'Reserved Rights',
+    // description:
+      // 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
     icon: ScaleIcon,
   },
   {
-    name: 'Transfers are instant',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    name: 'Quick Services',
+    // description:
+      // 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
     icon: LightningBoltIcon,
   },
   {
-    name: 'Mobile notifications',
-    description:
-      'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
+    name: 'Easy To Use',
+    // description:
+    //   'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.',
     icon: AnnotationIcon,
   },
 ]
 
 export default function Connect() {
   return (
-    <div className="py-12 bg-white ">
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div className="lg:text-center bottom-0.5">
+    <div className="py-12 ml-40 bg-white">
+      <div className="px-4 max-w-7xl sm:px-6 lg:px-8">
+        <div className="lg:text-center bottom-0.5 ">
           <h2 className="text-base font-semibold tracking-wide text-indigo-600 uppercase"></h2>
           <p className="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl">
           Connect
           </p>
           <p className="max-w-2xl mt-4 text-xl text-gray-500 lg:mx-auto">
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in
-            accusamus quisquam.
+            "Post a Service , Make an Offer"
           </p>
         </div>
 
-        <div className="mt-20 mb-20">
+        <div className="mt-20 mb-20 ml-80">
           <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
             {features.map((feature) => (
               <div key={feature.name} className="relative">
