@@ -1,5 +1,5 @@
 
-export default function CompanyCard() {
+export default function CompanyCard({resources , userData}) {
     return (
       <>
          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -22,8 +22,8 @@ export default function CompanyCard() {
                      {/* <!-- END profile-header-img -->
                      <!-- BEGIN profile-header-info --> */}
                      <div className="profile-header-info">
-                        <h4 className="m-t-10 m-b-5">Sean Ngu</h4>
-                        <p className="m-b-10">UXUI + Frontend Developer</p>
+                        <h4 className="m-t-10 m-b-5">{userData.username}</h4>
+                        <p className="m-b-10">{userData.is_company}</p>
                         <a href="#" className="mb-2 btn btn-sm btn-info">Edit Profile</a>
                      </div>
                      {/* <!-- END profile-header-info --> */}
