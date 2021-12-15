@@ -80,9 +80,14 @@
   }
   /* Header content & title & button*/
   .header-content {
-    margin-top: 25%;
+    margin-top: 19%;
     text-align: center;
+    align-items: center;
+    
     color: #efeef5;
+  }
+  .header-content img {
+   margin-left: 31%;
   }
   .header-content h1 {
     text-transform: uppercase;
@@ -92,7 +97,7 @@
   .header-content p {
     font-size: 20px;
     line-height: 1.5;
-    margin: 20px auto;
+    /* margin: 20px auto; */
   }
   .header-content button {
     width: 140px;
@@ -194,3 +199,19 @@
 
 }
 
+/*     half circle css*/
+
+.half-circle {
+    width: 200px;
+    height: 100px; /* as the half of the width */
+    background-color: white;
+    border-top-left-radius: 110px;  /* 100px of height + 10px of border */
+    border-top-right-radius: 110px; /* 100px of height + 10px of border */
+    border: 10px solid gray;
+    border-bottom: 0;
+}
+
+.footer {
+  /* background: linear-gradient(to bottom,violet ,white, violet); */
+
+}

@@ -20,20 +20,26 @@ export default function Main() {
       </div>
       <header>
         <section class="header-content">
-          <h1>Welcome</h1>
+          <img src='logo.png ' />
           <p>
             {" "}
-            Welcome to our studio. We are a passionated group of people, making
-            high quality products designed to make your life easier.
+           Post a Service OR Make an Offer
           </p>
-          <MyDropDown />
-
+         
+          <Menu>
+            <a
+              href="/sign_up_user"
+              className="inline-flex justify-center p-[10px] text-sm font-bold text-purple-600 no-underline bg-white border border-gray-300 shadow-sm rounded-3xl  foxtnt-medium w-36 hover:duration-300 hover:rounded-none focus:ring-offset-gray-100 "
+            >
+              Sign Up
+            </a>
+          </Menu>
           <Menu>
             <a
               href="/login"
               className="inline-flex justify-center p-[10px] text-sm font-bold text-purple-600 no-underline bg-white border border-gray-300 shadow-sm rounded-3xl  foxtnt-medium w-36 hover:duration-300 hover:rounded-none focus:ring-offset-gray-100 "
             >
-              login
+              Login
             </a>
           </Menu>
         </section>

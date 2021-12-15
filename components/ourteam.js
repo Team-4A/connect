@@ -1,3 +1,5 @@
+import Footer from "./Footer";
+
 const products = [
   {
     id: 1,
@@ -21,7 +23,7 @@ const products = [
     name: "Ashraf Obeidat",
     href: "#",
     imageSrc:
-      "https://avatars.githubusercontent.com/u/47212851?v=4",
+      "https://i.postimg.cc/dVGmnMPV/Ashraf2-1.png",
     color: "Full Stack Developer",
   },
   {
@@ -36,13 +38,13 @@ const products = [
 
 export default function Example() {
   return (
-    <div className="h-fit bg-gradient-to-r from-violet-300 to-violet-700 text-zinc-50 ">
+    <div className="text-black bg-purple-200 h-fit ">
       <link
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
         rel="stylesheet"
       />
-      <div className="max-w-2xl px-4 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-extrabold tracking-tight text-center ">
+      <div className="max-w-2xl px-8 mx-auto sm:px-6 lg:max-w-7xl lg:px-8">
+        <h2 className="pt-5 text-2xl font-extrabold tracking-tight text-center">
           Connect Team
         </h2>
 
@@ -73,6 +75,7 @@ export default function Example() {
           ))}
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

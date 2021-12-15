@@ -11,7 +11,7 @@ export default function Footer() {
         <a href='/'><img src='logo.png ' className='max-h-12'/></a>
 
         <div className='flex gap-4 ml-72'>
-            <h4 className='text-white'>Make an offer get a <span className='text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-purple-600'>job</span></h4>
+            <h4 className='text-white'>Make an offer get a <span className='text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-pink-400 to-purple-600'>Service</span></h4>
 
         </div>
         <div class="grid grid-cols-1 divide-y divide-yellow-500 text-white"></div>
@@ -46,4 +46,3 @@ export default function Footer() {
         </div>
     )
 }
-        

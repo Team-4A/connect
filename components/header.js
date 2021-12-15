@@ -5,11 +5,11 @@ export default function Header(props) {
       <div className="bg-purple-600 ">  
       
           <div className="flex items-center justify-between py-6 md:justify-start ">
-          <img src="logo.png" className="h-24 ml-20"/>
+          <a href='/'><img src="logo.png" className="h-24 ml-20"/></a> 
 
  
             <div className="items-center justify-end hidden pr-10 md:flex md:flex-1 lg:w-0">
-                <MyDropDown />
+                {/* <MyDropDown /> */}
             </div>
           </div>
       

@@ -39,6 +39,7 @@ export default function Explore() {
           
         </div>
       </main>
+      
     </div>
   );
 }
