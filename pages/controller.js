@@ -37,7 +37,7 @@ export default function Controller(props) {
         if(allUserData && allUserData.is_company){
             return(<>
             <Header2/>
-            <CompanyCard resources={resources} userData={allUserData}/>
+            <CompanyCard user_id={user.user.id} allOffers={resources} userData={allUserData}/>
             </>)
                
         }else{
