@@ -81,7 +81,7 @@ export default function CreateOffer({body , id , to_company}) {
                       </div>
                       <span class="datepicker-toggle">
                         <span class="datepicker-toggle-button"></span>
-                        <input type="date" class="datepicker-input"  name='date' onChange={(e) => dateHndler(e)} />
+                        <input type="date" class="datepicker-input" required="required" name='date' onChange={(e) => dateHndler(e)} />
                       </span>
                     </div>
 
@@ -89,17 +89,18 @@ export default function CreateOffer({body , id , to_company}) {
                     <label class="form-label">
                         Title
                       </label>
-                      <input   name="title" onChange={(e) => titleHandler(e)}/>
+                      <input  required="required" name="title" onChange={(e) => titleHandler(e)}/>
                       <br/>
                     <label class="form-label" >
                         Price
                       </label>
-                      <input   type="number" name="price" onChange={(e) => priceHandler(e)}/>
+                      <input   type="number" required="required" name="price" onChange={(e) => priceHandler(e)}/>
                       <br/>
                     <label class="form-label" for="textAreaExample">
                         addtional details
                       </label>
                       <textarea
+                      required="required"
                         name="addtinal_details"
                         class="form-control"
                         id="textAreaExample"

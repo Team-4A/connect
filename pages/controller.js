@@ -19,7 +19,7 @@ export default function Controller(props) {
     useEffect( () => {
         const dealer = async()=>{
            
-                let data = await axios.get('http://127.0.0.1:8000/register/'+user.user.id)
+                let data = await axios.get(process.env.NEXT_PUBLIC_API_URL_REGISTER+user.user.id)
                 console.log(data.data)
                 setAllUserData(data.data)
                  

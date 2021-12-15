@@ -1,47 +1,59 @@
 
-export default function SignUpFormForCompany(props) {
+export default function SignUpFormForCompany() {
+ async function event_handler(e){
+    e.preventDefault();
+    let user_data={
+      username: e.target.username.value,
+      email:e.target.email.value,
+      password:e.target.password.value,
+      phone_number:e.target.phone_number.value
+    }
+  
+    await axios.post(process.env.NEXT_PUBLIC_API_URL_REGISTER,user_data)
+    // send_user_data = axios.post('https://reqres.in/api/articles',user_data)
+  }
 
   return (
     <>
-  <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-  <div className="max-w-md w-full space-y-8">
+  <div className="flex items-center justify-center min-h-full px-4 py-12 sm:px-6 lg:px-8">
+  <div className="w-full max-w-md space-y-8">
     <div>
-      <img className="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow"/>
-      <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+      <img className="w-auto h-12 mx-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow"/>
+      <h2 className="mt-6 text-3xl font-extrabold text-center text-gray-900">
         Sign Up to your account
       </h2>
 
     </div>
-    <form onSubmit={props.event_handler} className="mt-8 space-y-6" action="#" method="POST">
+    <form onSubmit={event_handler} className="mt-8 space-y-6" action="#" method="POST">
       <input type="hidden" name="remember" value="true"/>
-      <div className="rounded-md shadow-sm -space-y-px">
+      <div className="-space-y-px rounded-md shadow-sm">
         <div>
           <label >Email address</label>
-          <input id="email-address" name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address"/>
+          <input id="email-address" name="email" type="email" autoComplete="email" required className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address"/>
         </div>
         <div>
           <label htmlFor="password" >Password</label>
-          <input id="password" name="password" type="password" autoComplete="current-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password"/>
+          <input id="password" name="password" type="password" autoComplete="current-password" required className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Password"/>
         </div>
         <div>
           <label htmlFor="phonenumber" >Phone number</label>
-          <input id="password" name="phonenumber" type="number" autoComplete="current-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Phonenumber"/>
+          <input id="password" name="phonenumber" type="number" autoComplete="current-password" required className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Phonenumber"/>
         </div>
         
         <div>
           <label htmlFor="CommericalCertificate">CommericalCertificate</label>
-          <input accept="image/*" id="CommericalCertificate" name="CommericalCertificate" type="file" autoComplete="current-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="CommericalCertificate"/>
+          <input accept="image/*" id="CommericalCertificate" name="CommericalCertificate" type="file" autoComplete="current-password" required className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="CommericalCertificate"/>
         </div>
         <div>
           <label htmlFor="ID_Card" >ID Card</label>
-          <input id="ID_Card" accept="image/*" name="ID_Card" type="file" autoComplete="ID_Card" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="ID Card"/>
+          <input id="ID_Card" accept="image/*" name="ID_Card" type="file" autoComplete="ID_Card" required className="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="ID Card"/>
         </div>
       </div>
 
       <div className="flex items-center justify-between">
         <div className="flex items-center">
-          <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"/>
-          <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+          <input id="remember-me" name="remember-me" type="checkbox" className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"/>
+          <label htmlFor="remember-me" className="block ml-2 text-sm text-gray-900">
             Remember me
           </label>
         </div>
@@ -54,10 +66,10 @@ export default function SignUpFormForCompany(props) {
       </div>
 
       <div>
-        <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-          <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+        <button type="submit" className="relative flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md group hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-3">
 
-            <svg className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <svg className="w-5 h-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
             </svg>
           </span>
