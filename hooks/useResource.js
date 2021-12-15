@@ -2,7 +2,6 @@ import axios from 'axios'
 import useSWR from 'swr'
 
 export const apiUrl = process.env.NEXT_PUBLIC_API_URL_HOOKS_POST
-console.log(apiUrl)
 import { useAuth } from '../contexts/auth'
 
 export default function useResource() {
