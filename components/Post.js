@@ -6,6 +6,8 @@ import Comment from './Comment'
 import addCommentModal from './addCommentModal'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
+import CreateOffer from '../components/CreateOffer'
+
 
 export default function Post({info,body,creator,created_at, id}) {
   
@@ -58,10 +60,19 @@ export default function Post({info,body,creator,created_at, id}) {
     <div className="flex">
       <Avatar  className='w-1/12 ' size="small" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTq0jPFfZ5xBOpu5GRcdO6bXodvptaTca02g&usqp=CAU" alt="Judith" />
       <div className="ml-2">
+
+          
+  
+             
         <p className="font-semibold dark:text-gray-300">{state.username}</p>
         <p className="text-xs text-gray-500">{created_at}</p>
       </div>
+      <div className='flex justify-center'>
+      
+      </div>
+      <CreateOffer to_company={state.id} body={body} id={userdata.user.id} className="flex justify-end"/>
     </div>
+    
     <p className="my-2 dark:text-black-300">
     {body}
     </p>

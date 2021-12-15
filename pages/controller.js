@@ -6,8 +6,10 @@ import {useAuth} from '../contexts/auth'
 import CompanyCard from '../components/companycard';
 import UserCard from '../components/user_card';
 import Header2 from '../components/header2';
+import useOffersHooks from '../hooks/useOffersHooks'
 export default function Controller(props) {
-    console.log(props)
+    const {resources} = useOffersHooks()
+  
     
     const [state, setState] = useState(0)
     const [allUserData, setAllUserData] = useState([])
@@ -35,13 +37,13 @@ export default function Controller(props) {
         if(allUserData && allUserData.is_company){
             return(<>
             <Header2/>
-            <CompanyCard userData={allUserData}/>
+            <CompanyCard resources={resources} userData={allUserData}/>
             </>)
                
         }else{
             return(<>
             <Header2/>
-            <UserCard userData={allUserData}/>
+            <UserCard resources={resources} userData={allUserData}/>
             </>)    
         }
         
