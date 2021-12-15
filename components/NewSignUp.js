@@ -18,7 +18,7 @@ export default function SignUpFormForUsers(props) {
       
         <div className="login-info-box">
           <h2>Create Your Account To Connect</h2>
-          <p>Post Your Service</p>
+          <p>Post a Service</p>
           <label id="label-register" htmlFor="log-reg-show">
             Company
           </label>
@@ -57,7 +57,7 @@ export default function SignUpFormForUsers(props) {
                 name="phonenumber"
               />
               <div classNameName="flex items-center gap-3">
-                <label classNameName="">ID_Card</label>
+                <label classNameName="">ID Card</label>
                 <input
                   id="ID_Card"
                   accept="image/*"
@@ -69,7 +69,7 @@ export default function SignUpFormForUsers(props) {
                 />
               </div>
               <div classNameName="flex items-center gap-3">
-                <label classNameName="">Commerical_Certificate</label>
+                <label classNameName="">Commerical Certificate</label>
                 <input
                   accept="image/*"
                   id="CommericalCertificate"
@@ -80,7 +80,7 @@ export default function SignUpFormForUsers(props) {
                 />
               </div>
 
-              <button type="submit" value="Sign Up" />
+              <button type="submit" value="Sign Up">Sign Up</button>
             </div>
             </form>
             {/* <label classNameName="">Password</label> */}
@@ -113,12 +113,14 @@ export default function SignUpFormForUsers(props) {
               />
               <input type="password" placeholder="Password" name="password" />
 
-              <button type="submit" value="Sign Up" />
+              
+              <button type="submit" value="Sign Up">Sign Up</button>
             </div>
           </form>
         </div>
       </div>
       <script src="/login_form.js"></script>
+      
     </>
   );
 }

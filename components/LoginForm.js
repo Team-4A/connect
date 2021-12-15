@@ -41,16 +41,17 @@ export default function LoginForm({login}) {
       <div class="h-screen md:flex">
         <div class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden">
           <div>
-            <h1 class="text-white font-bold text-4xl font-sans">Connect</h1>
-            <p class="text-white mt-1">
+            <h1 class="text-white font-bold text-4xl font-sans"></h1>
+            {/* <p class="text-white mt-1">
               The most popular peer to peer lending at SEA
-            </p>
-            <button
+            </p> */}
+            <a href='/'><img src='logo.png ' className=''/></a>
+            {/* <button
               type="submit"
               class="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2"
             >
-              Read More
-            </button>
+             
+            </button> */}
           </div>
           <div class="absolute -bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
           <div class="absolute -bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
