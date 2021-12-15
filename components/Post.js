@@ -4,11 +4,12 @@ import axios from "axios";
 import { Card, CardBody, Avatar, Button, HeartIcon } from "@windmill/react-ui";
 import useCommentResources from "../hooks/useCommentResources";
 import useActiviyResources from "../hooks/useActiviyResources";
-
+import CreateOffer from "../components/CreateOffer"
 import Comment from "./Comment";
 import addCommentModal from "./addCommentModal";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+
 
 export default function Post({
   info,
@@ -23,7 +24,7 @@ export default function Post({
   const { createActivityResource } = useActiviyResources();
 
 
-
+let userdata=JSON.parse(localStorage.getItem("userData"))
 
 
 
