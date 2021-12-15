@@ -1,6 +1,46 @@
 import Head from "next/head";
-
+import axios from "axios";
 export default function SignUpFormForUsers(props) {
+  async function event_handler_company(e){
+    e.preventDefault();
+   
+    let company_data={
+      
+      email : e.target.email.value,
+      username: e.target.username.value,
+      password: e.target.password.value,
+      is_company: true,
+      phone_number:e.target.phone_number.value
+    }
+  
+   try{await axios.post(process.env.NEXT_PUBLIC_API_URL_REGISTER,company_data)}
+   catch{
+    
+   }
+    
+   
+    
+    // send_user_data = axios.post('https://reqres.in/api/articles',user_data)
+  }
+  async function event_handler_user(e){
+    e.preventDefault();
+    let user_data={
+      username: e.target.username.value,
+      email:e.target.email.value,
+      is_company:false,
+      password:e.target.password.value,
+      phone_number:e.target.phone_number.value
+    }
+  
+    
+    try{await axios.post(process.env.NEXT_PUBLIC_API_URL_REGISTER,user_data);
+      
+    }catch(err){
+      console.log("the email is already registered",err)
+    }
+    
+    // send_user_data = axios.post('https://reqres.in/api/articles',user_data)
+  }
   return (
     <>
       <Head>
@@ -41,23 +81,23 @@ export default function SignUpFormForUsers(props) {
 
         <div className="white-panel">
         <form
-        onSubmit={props.event_handler}
+        onSubmit={(e)=>{event_handler_company(e)}}
         className="bg-white "
         action="#"
         method="POST"
       >
             <div className="login-show">
               <h2>Company Sign Up</h2>
-              <input type="text" placeholder="Full Name" />
+              <input type="text" name="username" placeholder="Full Name" />
               <input type="text" placeholder="Email" name="email" />
               <input type="password" placeholder="Password" name="password" />
               <input
                 type="number"
                 placeholder="Mobile Number"
-                name="phonenumber"
+                name="phone_number"
               />
               <div classNameName="flex items-center gap-3">
-                <label classNameName="">ID_Card</label>
+                <label classNameName="">ID Card</label>
                 <input
                   id="ID_Card"
                   accept="image/*"
@@ -69,7 +109,7 @@ export default function SignUpFormForUsers(props) {
                 />
               </div>
               <div classNameName="flex items-center gap-3">
-                <label classNameName="">Commerical_Certificate</label>
+                <label classNameName="">Commerical Certificate</label>
                 <input
                   accept="image/*"
                   id="CommericalCertificate"
@@ -83,21 +123,11 @@ export default function SignUpFormForUsers(props) {
               <button type="submit" value="Sign Up" />
             </div>
             </form>
-            {/* <label classNameName="">Password</label> */}
-            {/* <div classNameName="inline-flex align-item-baseline">
-            <input
-              className="pl-2 border-none outline-none"
-              type="password"
-              name="password"
-              id=""
-              placeholder="Password"
-            /></div> */}
-
-            {/* <a href="">Forgot password?</a> */}
+          
           
 
           <form
-            onSubmit={props.event_handler_user}
+            onSubmit={(e)=>{event_handler_user(e)}}
             className="bg-white "
             action="#"
             method="POST"
@@ -105,11 +135,12 @@ export default function SignUpFormForUsers(props) {
             <div className="register-show">
               <h2>User Sign Up</h2>
               {/* <input type="text" placeholder="Full Name" name=""/> */}
+              <input type="text" name="username" placeholder="Full Name" />
               <input type="text" placeholder="Email" name="email" />
               <input
                 type="number"
                 placeholder="Mobile Number"
-                name="phonenumber"
+                name="phone_number"
               />
               <input type="password" placeholder="Password" name="password" />
 

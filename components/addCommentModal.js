@@ -3,7 +3,7 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 
 
-export default function addCommentModal({ postid,show,handleClose }) {
+export default function addCommentModal({ post_id,show,handleClose }) {
     let userdata = JSON.parse(localStorage.getItem('userData'))
     const handleSubmit = e => {
 
@@ -20,14 +20,14 @@ export default function addCommentModal({ postid,show,handleClose }) {
         }
     }
     return (
-        <div>
-
-            <Modal show={show} onHide={handleClose}>
+        <>
+             
+            {/* <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={(e) => { handleSubmit(e) }}>
+                    <Form >
 
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                             <Form.Label>Example textarea</Form.Label>
@@ -44,8 +44,8 @@ export default function addCommentModal({ postid,show,handleClose }) {
                         Save Changes
                     </Button>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
 
-        </div>
+        </>
     )
 }
