@@ -1,17 +1,17 @@
 import axios from 'axios'
 import useSWR from 'swr'
 
-export const apiUrl = process.env.NEXT_PUBLIC_API_URL_HOOKS_COMMENT
+export const apiUrl = process.env.NEXT_PUBLIC_API_URL_HOOKS_ACTIVITY
 
 import { useAuth } from '../contexts/auth'
 
-export default function useCommentResources() {
+export default function useActiviyResources() {
     
     const { user,logout } = useAuth()
     const dataUser = JSON.parse(localStorage.getItem("userData"))
-   
+    console.log({dataUser})
     const token = dataUser.tokens.access
-   
+    console.log({token})
     const { data, error, mutate } = useSWR([apiUrl, token], fetchResource);
     
     async function fetchResource(url,token) {
@@ -30,7 +30,7 @@ export default function useCommentResources() {
         }
     }
 
-    async function createResource(info) {
+    async function createActivityResource(info) {
 
         try {
             await axios.post(apiUrl, info, config(token));
@@ -76,10 +76,10 @@ export default function useCommentResources() {
     }
 
     return {
-        resources: data,
+        activityResources: data,
         error,
         loading: token && !error && !data,
-        createResource,
+        createActivityResource,
         deleteResource,
         updateResource,
     }
