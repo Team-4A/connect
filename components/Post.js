@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import CreateOffer from  '../components/CreateOffer'
 import { Card, CardBody, Avatar, Button, HeartIcon } from "@windmill/react-ui";
 import useCommentResources from "../hooks/useCommentResources";
 import useActiviyResources from "../hooks/useActiviyResources";
+const user = JSON.parse(localStorage.getItem("userData"))
 
 import Comment from "./Comment";
 import addCommentModal from "./addCommentModal";
@@ -11,6 +12,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 
 export default function Post({
+  
   info,
   updatePostResource,
   body,
@@ -20,17 +22,23 @@ export default function Post({
   likes,
   
 }) {
+  const [allUserData,setAllUserData]=useState({})
   const { createActivityResource } = useActiviyResources();
-
-
-
-
-
-
 
   const [state, setState] = useState([]);
   const [show, setShow] = useState(false);
   const { resources, createResource } = useCommentResources();
+
+  useEffect( () => {
+    const dealer = async()=>{
+       
+            let data = await axios.get('http://127.0.0.1:8000/register/'+user.user.id)
+            console.log(data.data)
+            setAllUserData(data.data) 
+    }
+    dealer()
+     
+},[])
   useEffect(() => {
     let config = {
       method: "get",
@@ -47,15 +55,15 @@ export default function Post({
   let userData = JSON.parse(localStorage.getItem("userData"));
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let data = {
+    let data = await {
       comment: e.target.comment.value,
       creator: userData.user.id,
       on_post: [id],
     };
-    createResource(data);
+    await createResource(data);
     let userActivity = {
       type_of_activity: "Comment",
-      user: userData.user.id,
+      user: user.user.id,
       post: [id],
     };
     createActivityResource(userActivity);
@@ -104,7 +112,9 @@ export default function Post({
               <p className="text-xs text-gray-500">{created_at}</p>
              
             </div>
-   <CreateOffer to_company={state.id} body={body} id={userdata.user.id} className="flex justify-end"/>
+            {console.log('all user data information',allUserData)}
+            {/* (allUserData.is_company == false)  */}
+   { allUserData.is_company === false && <CreateOffer to_company={state.id} body={body} id={user.user.id} className="flex justify-end"/>}
           </div>
           <p className="my-2 dark:text-black-300">{body}</p>
           <div className="flex items-end justify-between">
@@ -139,6 +149,7 @@ export default function Post({
                         <>
                           <li key={idx}>
                             <Comment
+                              userId={userData.user.id}
                               creator={items.creator}
                               created_at={items.created_at}
                               comment={items.comment}
