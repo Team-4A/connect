@@ -27,7 +27,7 @@ export default function Comment({comment,created_at,creator,userId}) {
         <div className=''>
 
            <p>{state.username}</p>
-            <p>{created_at}</p>
+            <p>{created_at.slice(0,10)}</p>
             <p>{comment}</p>
 
         </div>
