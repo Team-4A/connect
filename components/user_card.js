@@ -8,9 +8,8 @@ export default function UserCard({
   activityResources,
   postResources,
 }) {
-  console.log({ activityResources });
-  console.log({ postResources });
   
+  console.log({postResources})
   return (
     <>
       <link
@@ -130,7 +129,7 @@ export default function UserCard({
                       </div>
                     </div>
 
-                    <PreviousOffers resources={resources} />
+                    <PreviousOffers resources={resources} userData={userData} />
 
                     <div className="panel-body"></div>
                   </div>
@@ -151,24 +150,24 @@ export default function UserCard({
                                     {activityResources &&
                                       postResources &&
                                       activityResources.map((ele, idx) => {
-                                        postResources.map((item, idnx) => {
+                                        return (postResources.map((item, idnx) => {
                                           if (ele.post == item.id) {
-                                            console.log(ele.post ==item.id)
+                                            
                                             return (
                                               <>
                                                 <Card>
                                                   <Card.Body>
-                                                    {item.Body}
+                                                    <Card.Title>You interacted by {ele.type_of_activity} on this post</Card.Title>
+                                                    "{item.body}"
                                                   </Card.Body>
                                                 </Card>
                                               </>
                                             );
                                           }
-                                        });
+                                        })
+                                        );
                                       })}
-                                    <Card>
-                                      <Card.Body>sjhsjhjsjhs</Card.Body>
-                                    </Card>
+                                    
                                   </div>
                                 </div>
                               </div>

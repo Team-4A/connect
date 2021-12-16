@@ -25,9 +25,7 @@ export default function Post({
   id,
   likes,
 }) {
-  const date = created_at.replace(
-    /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}).(\d{7})$/,
-    '$3/$2/$1')
+ 
   const [allUserData,setAllUserData]=useState({})
   const { createActivityResource } = useActiviyResources();
 
@@ -117,7 +115,7 @@ export default function Post({
         <div>
           <div className="timeline-time">
             <span className="text-xl date">Date</span>
-            <span className="text-xs italic font-thin ">{date}</span>
+            <span className="text-xs italic font-thin ">{created_at.slice(0,10)}</span>
           </div>
           {/* <!-- end timeline-time -->
                     <!-- begin timeline-icon --> */}
