@@ -9,9 +9,9 @@ export default function useofferResources() {
     
     const { user,logout } = useAuth()
     const dataUser = JSON.parse(localStorage.getItem("userData"))
-    console.log({dataUser})
+
     const token = dataUser.tokens.access
-    console.log({token})
+   
     const { data, error, mutate } = useSWR([apiUrl, token], fetchResource);
     
     async function fetchResource(url,token) {
@@ -22,7 +22,7 @@ export default function useofferResources() {
 
         try {
             const response = await axios.get(url, config(token));
-            console.log("form useResource",response.data)
+            
             return response.data;
 
         } catch (error) {
@@ -40,7 +40,7 @@ export default function useofferResources() {
         }
     }
 
-    async function deleteResource(id) {
+    async function deleteOfferResource(id) {
 
         try {
             const url = apiUrl + id;
@@ -51,9 +51,14 @@ export default function useofferResources() {
         }
     }
 
-    async function updateResource(resource) {
-        // STRETCH
-        // Add ability for user to update an existing resource
+    async function updateOfferResource(resource) {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL_HOOKS_OFFERS
+        try {
+            await axios.put(apiUrl+`${resource.id}/offer_detail/`, resource, config(token));
+            mutate(); // mutate causes complete collection to be refetched
+        } catch (error) {
+            handleError(error);
+        }
     }
 
 
@@ -76,12 +81,12 @@ export default function useofferResources() {
     }
 
     return {
-        resources: data,
+        offerResources: data,
         error,
         loading: token && !error && !data,
         createResource,
-        deleteResource,
-        updateResource,
+        deleteOfferResource,
+        updateOfferResource,
     }
 }
 

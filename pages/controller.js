@@ -7,20 +7,24 @@ import CompanyCard from '../components/companycard';
 import UserCard from '../components/user_card';
 import Header2 from '../components/header2';
 import useOffersHooks from '../hooks/useOffersHooks'
+import useActivityResources from '../hooks/useActivityResources';
+import usePostResource from '../hooks/usePostResources';
+import Footer from '../components/Footer'
+
 export default function Controller(props) {
-    const {resources} = useOffersHooks()
-  
-    
+    const {offerResources,updateOfferResource} = useOffersHooks()
+    const {resources}=usePostResource()
+    const {activityResources} = useActivityResources()
     const [state, setState] = useState(0)
     const [allUserData, setAllUserData] = useState([])
     const [userData, setUserData] = useState({ id: 0, email: "", username: "", is_company: "", phone_number: "", country: "", profile_img: "" })
     const user = JSON.parse(localStorage.getItem("userData"))
-
+    
     useEffect( () => {
         const dealer = async()=>{
            
-                let data = await axios.get('http://127.0.0.1:8000/register/'+user.user.id)
-                console.log(data.data)
+                let data = await axios.get(process.env.NEXT_PUBLIC_API_URL_REGISTER+user.user.id)
+                
                 setAllUserData(data.data)
                  
                
@@ -31,23 +35,25 @@ export default function Controller(props) {
          
     },[])
         
-    console.log('userData', userData)
+   
 
     
         if(allUserData && allUserData.is_company){
             return(<>
             <Header2/>
-            <CompanyCard user_id={user.user.id} allOffers={resources} userData={allUserData}/>
+            <CompanyCard  user_id={user.user.id} updateOfferResource={updateOfferResource} allOffers={offerResources} userData={allUserData}/>
+            <Footer/>
             </>)
                
         }else{
             return(<>
             <Header2/>
-            <UserCard resources={resources} userData={allUserData}/>
+            <UserCard resources={offerResources} postResources={resources} activityResources={activityResources} userData={allUserData}/>
+            <Footer/>
             </>)    
         }
         
-    
+   
 
     return (
         <div>

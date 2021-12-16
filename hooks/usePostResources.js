@@ -22,7 +22,7 @@ export default function usePostResource() {
 
         try {
             const response = await axios.get(url, config(token));
-            console.log("form useResource",response.data)
+            
             return response.data;
 
         } catch (error) {

@@ -18,7 +18,7 @@ export default function useResource() {
 
         try {
             const response = await axios.get(url, config());
-             console.log(response.data)   
+              
             return response.data;
 
         } catch (error) {

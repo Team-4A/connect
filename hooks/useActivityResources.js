@@ -9,9 +9,9 @@ export default function useActiviyResources() {
     
     const { user,logout } = useAuth()
     const dataUser = JSON.parse(localStorage.getItem("userData"))
-    console.log({dataUser})
+    
     const token = dataUser.tokens.access
-    console.log({token})
+    
     const { data, error, mutate } = useSWR([apiUrl, token], fetchResource);
     
     async function fetchResource(url,token) {
@@ -22,7 +22,7 @@ export default function useActiviyResources() {
 
         try {
             const response = await axios.get(url, config(token));
-            console.log("form useResource",response.data)
+            
             return response.data;
 
         } catch (error) {

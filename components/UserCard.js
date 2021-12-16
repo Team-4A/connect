@@ -218,7 +218,17 @@ export default function UserCard1() {
                     </div>
                   </div>
                 </div>
+                <div className="panel panel-white border-top-blue">
+                    <div className="panel-heading">
+                      <h3 className="panel-title">< PreviousOffers/></h3>
 
+                      <div className="controls pull-right">
+                        <span className="pull-right clickable">
+                          <i className="fa fa-chevron-up"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 <div className="col-sm-6">
                   <div className="panel panel-white border-top-green">
                     <div className="panel-heading">
@@ -260,42 +270,9 @@ export default function UserCard1() {
                     </div>
                   </div>
 
-                  {/* <div className="panel panel-white border-top-orange">
-               <div className="panel-heading">
-                 <h3 className="panel-title">Social Statistics</h3>
-                 <div className="controls pull-right">
-                   <span className="pull-right clickable">
-                     <i className="fa fa-chevron-up"></i>
-                   </span>
-                 </div>
-               </div>
-               <div className="panel-body">
-                 <div className="body-section">
-                   <h5 className="section-heading">Friends</h5>
-                   <p className="section-content">242</p>
-                 </div>
-                 <div className="body-section">
-                   <h5 className="section-heading">Posts</h5>
-                   <p className="section-content">2240</p>
-                 </div>
-                 <div className="body-section">
-                   <h5 className="section-heading">Pictures</h5>
-                   <p className="section-content">18</p>
-                 </div>
-               </div>
-             </div> */}
+                 
 
-                  <div className="panel panel-white border-top-blue">
-                    <div className="panel-heading">
-                      <h3 className="panel-title">< PreviousOffers/></h3>
-
-                      <div className="controls pull-right">
-                        <span className="pull-right clickable">
-                          <i className="fa fa-chevron-up"></i>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                 
                 </div>
                 {/* <!-- end profile-content --> */}
               </div>

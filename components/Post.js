@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CreateOffer from  '../components/CreateOffer'
-import { Card, CardBody, Avatar, Button, HeartIcon } from "@windmill/react-ui";
+
+import Router from "next/router";
+import Link from "next/link";
+import { CardBody, Avatar, Button, HeartIcon } from "@windmill/react-ui";
+
 import useCommentResources from "../hooks/useCommentResources";
-import useActiviyResources from "../hooks/useActiviyResources";
-const user = JSON.parse(localStorage.getItem("userData"))
+import useActiviyResources from "../hooks/useActivityResources";
+import { Card } from "react-bootstrap";
 
 import Comment from "./Comment";
 import addCommentModal from "./addCommentModal";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import CreateOffer from "./CreateOffer";
 
 export default function Post({
   
@@ -20,25 +24,19 @@ export default function Post({
   created_at,
   id,
   likes,
-  
 }) {
+  const date = created_at.replace(
+    /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2}).(\d{7})$/,
+    '$3/$2/$1')
   const [allUserData,setAllUserData]=useState({})
   const { createActivityResource } = useActiviyResources();
 
   const [state, setState] = useState([]);
+  const [counter, setCounter] = useState(0);
   const [show, setShow] = useState(false);
   const { resources, createResource } = useCommentResources();
 
-  useEffect( () => {
-    const dealer = async()=>{
-       
-            let data = await axios.get('http://127.0.0.1:8000/register/'+user.user.id)
-            console.log(data.data)
-            setAllUserData(data.data) 
-    }
-    dealer()
-     
-},[])
+  const [showState, setShowState] = useState(false);
   useEffect(() => {
     let config = {
       method: "get",
@@ -63,15 +61,24 @@ export default function Post({
     await createResource(data);
     let userActivity = {
       type_of_activity: "Comment",
-      user: user.user.id,
+      user: userData.user.id,
       post: [id],
     };
     createActivityResource(userActivity);
+    e.target.reset();
   };
 
   const handleClose = () => setShow(false);
   const addComment = () => setShow(true);
-
+  useEffect(() => {
+    if (resources) {
+      resources.map((ele) => {
+        if (ele.on_post == id) {
+          setCounter((counter = counter + 1));
+        }
+      });
+    }
+  }, []);
 
   const HandleLike = () => {
     let data = {
@@ -82,124 +89,164 @@ export default function Post({
     };
     let userActivity = {
       type_of_activity: "Likes",
-      user: userData.user.id,
+      user:userData.user.id,
       post: [id],
     };
     createActivityResource(userActivity);
     updatePostResource(data);
   };
 
+  const visit = () => {
+    Router.push(`/controller/${creator}`);
+  };
+  let i = 0;
+  const showComments = () => {
+    if (i > 1) {
+      i = 0;
+    }
+    let type = [true, false];
+    setShowState(type[i]);
+    ++i;
+  };
   return (
-    
- 
-  
-  
-    <div>
-          
-      <Card className="rounded-lg ">
-        <CardBody className="">
-          <div className="flex">
-            <Avatar
-              className="w-1/12 "
-              size="small"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTq0jPFfZ5xBOpu5GRcdO6bXodvptaTca02g&usqp=CAU"
-              alt="Judith"
-            />
-            <div className="ml-2">
-              <p className="font-semibold dark:text-gray-300">
-                {state.username}
-              </p>
-              <p className="text-xs text-gray-500">{created_at}</p>
-             
-            </div>
-            {console.log('all user data information',allUserData)}
-            {/* (allUserData.is_company == false)  */}
-   { allUserData.is_company === false && <CreateOffer to_company={state.id} body={body} id={user.user.id} className="flex justify-end"/>}
-          </div>
-          <p className="my-2 dark:text-black-300">{body}</p>
-          <div className="flex items-end justify-between">
-            <div>
-              <Button onClick="" size="small" type="neutral">
-                Read more
-              </Button>
-            </div>
-            <div>
-              <Button
-                size="small"
-                onClick={HandleLike}
-                icon={HeartIcon}
-                layout="link"
-                aria-label="Like"
-                className="like"
-              >
-                {" "}
-                &hearts; {likes}
-              </Button>
-              <Button size="small" className="ml-2">
-                comments
-              </Button>
-              <Button onClick={addComment} size="small" className="ml-2">
-                Add comment
-              </Button>
-              <ul key={id}>
-                {resources &&
-                  resources.map((items, idx) => {
-                    if (items.on_post == id) {
-                      return (
-                        <>
-                          <li key={idx}>
-                            <Comment
-                              userId={userData.user.id}
-                              creator={items.creator}
-                              created_at={items.created_at}
-                              comment={items.comment}
-                            />
-                          </li>
-                        </>
-                      );
-                    }
-                  })}
-              </ul>
-              {console.log("this is show", show)}
-            </div>
-          </div>
-        </CardBody>
-      </Card>
-      {/* {show && <addCommentModal show={show} handleClose={handleClose} postid={id}/>} */}
 
-      <div>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form
-              onSubmit={(e) => {
-                handleSubmit(e);
-              }}
-            >
-              <Form.Group
-                className="mb-3"
-                controlId="exampleForm.ControlTextarea1"
-              >
-                <Form.Label>Example textarea</Form.Label>
-                <Form.Control name="comment" as="textarea" rows={3} />
-              </Form.Group>
-              <Button type="submit" variant="primary">
-                Save changes
-              </Button>
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
+    <>
+      <div className="w-full ">
+        {/* <!-- begin timeline-time --> */}
+
+        <div>
+          <div className="timeline-time">
+            <span className="text-xl date">Date</span>
+            <span className="text-xs italic font-thin ">{date}</span>
+          </div>
+          {/* <!-- end timeline-time -->
+                    <!-- begin timeline-icon --> */}
+          <div className="timeline-icon">
+            <a href="javascript:;">&nbsp;</a>
+
+          </div>
+          {/* <!-- end timeline-icon -->
+                    <!-- begin timeline-body --> */}
+          <div className="w-full timeline-body">
+            <div className="timeline-header">
+              <span className="userimage">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                  alt=""
+                />
+              </span>
+              <span className="username">
+                <a href="javascript:;">{state.username}</a> <small></small>
+              </span>
+              {/* <Link href={`/controller/${creator}`}>
+                <a>
+                  <span className="pull-right text-muted dark:md:hover:bg-fuchsia-600">
+                    Visit
+                  </span>
+                </a>
+              </Link> */}
+            </div>
+
+            <div className="timeline-content">
+              <p>{body}</p>
+            </div>
+            <div className="timeline-likes">
+              <div className="stats-right">
+                <span className="stats-text"></span>
+              </div>
+              <div className="stats">
+                <span className="fa-stack fa-fw stats-icon">
+                  <i className="fa fa-circle fa-stack-2x text-danger"></i>
+                  <i className="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+                </span>
+                <span className="fa-stack fa-fw stats-icon">
+                  <i className="fa fa-circle fa-stack-2x text-primary"></i>
+                  <i className="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                </span>
+                <span className="stats-total">
+                  <CreateOffer
+                    to_company={state.id}
+                    body={body}
+                    id={userData.user.id}
+                    className="flex justify-end"
+                  />
+                </span>
+              </div>
+            </div>
+            <div className="timeline-footer">
+              <a href="javascript:;" className="m-r-15 text-inverse-lighter">
+                <i className="fa fa-thumbs-up fa-fw fa-lg m-r-3">
+                  <Button
+                    size="small"
+                    onClick={HandleLike}
+                    icon={HeartIcon}
+                    layout="link"
+                    aria-label="Like"
+                    className="like"
+                  >
+                    {" "}
+                    &hearts; {likes}
+                    Like
+                  </Button>
+                </i>
+              </a>
+              <button onClick={showComments} className="stats-text">
+                {counter} Comments
+              </button>
+
+              {showState &&
+                resources &&
+                resources.map((items, idx) => {
+                  if (items.on_post == id) {
+                    return (
+                      <>
+                        <li key={idx}>
+                          <Comment
+                            creator={items.creator}
+                            comment={items.comment}
+                            created_at={items.created_at}
+                          />
+                        </li>
+                      </>
+                    );
+                  }
+                })}
+            </div>
+            <div className="timeline-comment-box">
+              <div className="user">
+                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" />
+              </div>
+              <div className="input">
+                <form
+                  action=""
+                  onSubmit={(e) => {
+                    handleSubmit(e);
+                  }}
+                >
+                  <div className="input-group">
+                    <input
+                      name="comment"
+                      type="text"
+                      className="form-control rounded-corner"
+                      placeholder="Write a comment..."
+                    />
+                    <span className="input-group-btn p-l-10">
+                      <button
+                        className="btn btn-primary f-s-12 rounded-corner"
+                        type="submit"
+                      >
+                        Comment
+                      </button>
+                    </span>
+                  </div>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {/* <!-- end timeline-body --> */}
       </div>
-    </div>
- )
+    </>
+  );
 }

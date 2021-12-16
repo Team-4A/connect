@@ -1,71 +1,87 @@
 import React from "react";
-import Router from 'next/router';
-import Link from 'next/link';
+import Router from "next/router";
+import Link from "next/link";
 import { useAuth } from "../contexts/auth";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-export default function LoginForm({login}) {
-  const {user} = useAuth();
-	const[state,changeState]=useState(0)
-    const [alertstate,ChangeAlertstate] = useState(false)
+export default function LoginForm({ login }) {
+  const { user } = useAuth();
+  const [state, changeState] = useState(0);
+  const [alertstate, ChangeAlertstate] = useState(false);
+  const [loginState, setLoginState] = useState();
 
-    
-    
-        
-    const handleLogin = e => {
-        try {
-            e.preventDefault();
-            let login_info = {
-                email: e.target.email.value,
-                password: e.target.password.value,
-            }
-            
-            login(login_info.email, login_info.password,changeState)
-            
-        }catch (err) {
-            console.log('you are not authorized ');
-        }
+  const handleLogin = (e) => {
+    try {
+      e.preventDefault();
+      let login_info = {
+        email: e.target.email.value,
+        password: e.target.password.value,
+      };
+
+      login(login_info.email, login_info.password, changeState);
+      setLoginState(false);
+    } catch (err) {
+      console.log("you are not authorized ");
+      
     }
-    useEffect(()=>{
-        if (state ==1){
-          
-            Router.push('/controller/')
-        }
-        if(state > 1){
-            ChangeAlertstate(true)
-        }
-    },[state])
-	
+  };
+  useEffect(() => {
+    if (state == 1) {
+      Router.push("/controller/");
+    }
+    if (state > 1) {
+      setLoginState(true);
+      ChangeAlertstate(true);
+    }
+  }, [state]);
+console.log(loginState)
   return (
     <div>
-      <div class="h-screen md:flex">
-        <div class="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden">
+      <div className="h-screen md:flex">
+        <div className="relative items-center justify-around hidden w-1/2 overflow-hidden md:flex bg-gradient-to-tr from-blue-800 to-purple-700 i">
           <div>
-            <h1 class="text-white font-bold text-4xl font-sans">Connect</h1>
-            <p class="text-white mt-1">
-              The most popular peer to peer lending at SEA
+            <h1 className="font-sans text-4xl font-bold text-white">Connect</h1>
+            <p className="mt-1 text-white">
+            The most popular Business to Customer service in the world
             </p>
             <button
               type="submit"
-              class="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2"
+              className="block py-2 mt-4 mb-2 font-bold text-indigo-800 bg-white w-28 rounded-2xl"
             >
               Read More
             </button>
           </div>
-          <div class="absolute -bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-          <div class="absolute -bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-          <div class="absolute -top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
-          <div class="absolute -top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8"></div>
+          <div className="absolute border-4 border-t-8 rounded-full -bottom-32 -left-40 w-80 h-80 border-opacity-30"></div>
+          <div className="absolute border-4 border-t-8 rounded-full -bottom-40 -left-20 w-80 h-80 border-opacity-30"></div>
+          <div className="absolute border-4 border-t-8 rounded-full -top-40 -right-0 w-80 h-80 border-opacity-30"></div>
+          <div className="absolute border-4 border-t-8 rounded-full -top-20 -right-20 w-80 h-80 border-opacity-30"></div>
         </div>
-        <div class="flex md:w-1/2 justify-center py-10 items-center bg-white">
-          <form class="bg-white" onSubmit={(e)=>{handleLogin(e)}}>
-            <h1 class="text-gray-800 font-bold text-2xl mb-1">Hello Again!</h1>
-            <p class="text-sm font-normal text-gray-600 mb-7">Welcome Back</p>
-
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl mb-4">
+        <div className="flex items-center justify-center py-10 bg-white md:w-1/2">
+          <form
+            className="bg-white"
+            onSubmit={(e) => {
+              handleLogin(e);
+            }}
+          >
+            <h1 className="mb-1 text-3xl font-bold text-gray-800">
+              Hello Again!
+            </h1>
+            <p className="text-xl font-normal text-gray-600 mb-7">
+              Welcome Back
+            </p>
+            {loginState && <>
+              <p className="text-sm font-normal text-gray-600 text-red-600 mb-7">
+                Please enter a correct email and password.<br/>Note that both fields may be case-sensitive.
+                 
+              </p>
+              
+            </>
+              
+            }
+            <div className="flex items-center px-3 py-2 mb-4 border-2 rounded-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
+                className="w-5 h-5 text-gray-400"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -78,17 +94,17 @@ export default function LoginForm({login}) {
                 />
               </svg>
               <input
-                class="pl-2 outline-none border-none"
+                className="pl-2 border-none outline-none"
                 type="email"
                 name="email"
                 id=""
                 placeholder="Email Address"
               />
             </div>
-            <div class="flex items-center border-2 py-2 px-3 rounded-2xl">
+            <div className="flex items-center px-3 py-2 border-2 rounded-2xl">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
+                className="w-5 h-5 text-gray-400"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -99,24 +115,22 @@ export default function LoginForm({login}) {
                 />
               </svg>
               <input
-                class="pl-2 outline-none border-none"
+                className="pl-2 border-none outline-none"
                 type="password"
                 name="password"
                 id=""
                 placeholder="Password"
               />
             </div>
-            
+
             <button
               type="submit"
-              class="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2"
+              className="block w-full py-2 mt-4 mb-2 font-semibold text-white bg-indigo-600 rounded-2xl"
             >
               Login
             </button>
+
            
-            <span class="text-sm ml-2 hover:text-blue-500 cursor-pointer">
-              Forgot Password ?
-            </span>
           </form>
         </div>
       </div>

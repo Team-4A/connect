@@ -14,7 +14,7 @@ export default function Header2(props) {
             href="/"
             className="inline-flex items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white no-underline hover:text-xl"
           >
-            Connect
+            <img className="w-64 hover:w-120" src='./logo.png'/>
           </Link>
             <div className="items-center justify-end hidden md:flex md:flex-1 lg:w-0">
              
@@ -40,6 +40,14 @@ export default function Header2(props) {
             className={`inline-flex items-center duration-300 justify-center px-4 py-2 ml-8 text-base font-medium ${router.pathname === "/aboutus" &&'text-3xl'} text-white no-underline hover:duration-300 hover:text-3xl`}
           >
             About us
+          </a>
+          </Link>
+          <Link  href="/Complain" passHref>
+          <a
+            href="/Complain"
+            className={`inline-flex items-center justify-center duration-300 px-4 py-2 ml-8 text-base font-medium text-white ${router.pathname === "/" &&'text-3xl'} no-underline hover:duration-300 hover:text-3xl`}
+          >
+            Complaints
           </a>
           </Link>
           <Link  href="/" passHref>
