@@ -28,31 +28,13 @@ export default function CompanyCard({
   const approve = (item) => {
    item["status"]='approved'
     console.log({ item });
-   //  let data = {
-   //    created_at: item.created_at,
-   //    description: item.description,
-   //    id: [item.id],
-   //    owner_id: [userData.id],
-   //    price: item.price,
-   //    status: "approved",
-   //    title: item.title,
-   //    to_company: [item.to_company],
-   //  };
+  
     updateOfferResource(item);
   };
   
   const reject = (item) => {
      item["status"]='rejected'
-   // let data = {
-   //    created_at: item.created_at,
-   //    description: item.description,
-   //    id: [item.id],
-   //    owner_id: [userData.id],
-   //    price: item.price,
-   //    status: "rejected",
-   //    title: item.title,
-   //    to_company: [item.to_company[0]],
-   //  };
+  
     updateOfferResource(item);
   };
   

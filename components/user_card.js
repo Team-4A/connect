@@ -1,4 +1,4 @@
-import Useractivity from "../components/UserAcivity";
+
 import PreviousOffers from "./previous_offers";
 import Card from "react-bootstrap/Card";
 // import PreviousOffers from '../components/previous_offers'
