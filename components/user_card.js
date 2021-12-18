@@ -9,7 +9,7 @@ export default function UserCard({
   postResources,
 }) {
   
-  console.log({postResources})
+  
   return (
     <>
       <link
@@ -150,7 +150,8 @@ export default function UserCard({
                                     {activityResources &&
                                       postResources &&
                                       activityResources.map((ele, idx) => {
-                                        return (postResources.map((item, idnx) => {
+                                        if(ele.user == userData.id){
+                                             return (postResources.map((item, idnx) => {
                                           if (ele.post == item.id) {
                                             
                                             return (
@@ -158,7 +159,7 @@ export default function UserCard({
                                                 <Card>
                                                   <Card.Body>
                                                     <Card.Title>You interacted by {ele.type_of_activity} on this post</Card.Title>
-                                                    "{item.body}"
+                                                   " {item.body} "
                                                   </Card.Body>
                                                 </Card>
                                               </>
@@ -166,6 +167,8 @@ export default function UserCard({
                                           }
                                         })
                                         );
+                                        }
+                                     
                                       })}
                                     
                                   </div>

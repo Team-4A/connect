@@ -423,7 +423,7 @@ select.form-control:not([size]):not([multiple]) {
     content: '';
     position: absolute;
     top: 5px;
-    bottom: 5px;
+    bottom: 10px;
     width: 5px;
     background: #2d353c;
     left: 20%;

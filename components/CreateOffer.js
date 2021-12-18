@@ -31,7 +31,7 @@ export default function CreateOffer({body , id , to_company}) {
     
     let data = {
       created_at: sentData.date,
-        owner_id: [id],
+        owner_id: id,
         to_company:[to_company],
         title: sentData.title,
         description:sentData.info,

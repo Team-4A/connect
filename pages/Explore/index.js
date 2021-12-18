@@ -30,7 +30,7 @@ export default function Explore() {
                       <Post
                         updatePostResource={updatePostResource}
                         likes={ele.likes}
-                        user_id={userData.id}
+                        user_id={userData.user.id}
                         body={ele.body}
                         creator={ele.creator}
                         created_at={ele.created_at}

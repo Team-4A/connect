@@ -4,7 +4,7 @@ export default function PreviousOffers({ resources ,userData  }) {
   const [state, usestate] = useState(0);
   return (
     <>
-      {console.log('helooooooooooo',resources)}
+      
       {resources &&
         resources.map((item, idx) => {
           if (userData.id == item.owner_id){
