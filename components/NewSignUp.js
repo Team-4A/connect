@@ -131,17 +131,7 @@ export default function SignUpFormForUsers() {
               <button type="submit" value="Sign Up">Sign Up</button>
             </div>
             </form>
-            {/* <label classNameName="">Password</label> */}
-            {/* <div classNameName="inline-flex align-item-baseline">
-            <input
-              className="pl-2 border-none outline-none"
-              type="password"
-              name="password"
-              id=""
-              placeholder="Password"
-            /></div> */}
-
-            {/* <a href="">Forgot password?</a> */}
+            
           
 
           <form
