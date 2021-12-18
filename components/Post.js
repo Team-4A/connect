@@ -24,10 +24,12 @@ export default function Post({
   created_at,
   id,
   likes,
+  user_id,
+  data
 }) {
  
   const [allUserData,setAllUserData]=useState({})
-  const { createActivityResource } = useActiviyResources();
+  const { activityResources,createActivityResource } = useActiviyResources();
 
   const [state, setState] = useState([]);
   const [counter, setCounter] = useState(0);
@@ -79,19 +81,18 @@ export default function Post({
   }, []);
 
   const HandleLike = () => {
-    let data = {
-      id: id,
-      body: body,
-      creator: userData.user.id,
-      likes: likes + 1,
-    };
-    let userActivity = {
-      type_of_activity: "Likes",
-      user:userData.user.id,
-      post: [id],
-    };
-    createActivityResource(userActivity);
-    updatePostResource(data);
+    
+    
+      let data12 = {
+        id: id,
+        body: body,
+        creator: userData.user.id,
+        likes: [...likes,user_id],
+  
+      };
+      
+      updatePostResource(data12);
+     
   };
 
   const visit = () => {
@@ -109,12 +110,12 @@ export default function Post({
   return (
 
     <>
-      <div className="w-full ">
+      <div className="w-full">
         {/* <!-- begin timeline-time --> */}
 
         <div>
-          <div className="timeline-time">
-            <span className="text-xl date">Date</span>
+          <div className="justify-start timeline-time ">
+            <span className=" date">Date</span>
             <span className="text-xs italic font-thin ">{created_at.slice(0,10)}</span>
           </div>
           {/* <!-- end timeline-time -->
@@ -136,13 +137,7 @@ export default function Post({
               <span className="username">
                 <a href="javascript:;">{state.username}</a> <small></small>
               </span>
-              {/* <Link href={`/controller/${creator}`}>
-                <a>
-                  <span className="pull-right text-muted dark:md:hover:bg-fuchsia-600">
-                    Visit
-                  </span>
-                </a>
-              </Link> */}
+             
             </div>
 
             <div className="timeline-content">
@@ -183,7 +178,7 @@ export default function Post({
                     className="like"
                   >
                     {" "}
-                    &hearts; {likes}
+                    &hearts; {likes.length}
                     Like
                   </Button>
                 </i>
