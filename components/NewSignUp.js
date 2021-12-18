@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Script from "next/script";
+import $ from 'jquery';
 import axios from "axios";
 import { useState } from "react";
 import Router from "next/router";
@@ -51,14 +53,16 @@ export default function SignUpFormForUsers() {
   return (
     <>
       <Head>
-        <link
+      
+      </Head>
+      <link
           href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           rel="stylesheet"
           id="bootstrap-css"
         />
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      </Head>
+        
+        <Script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></Script>
+        <Script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></Script>
       {/* <!------ Include the above in your HEAD tag ----------> */}
       
       <div className="login-reg-panel">
@@ -158,7 +162,8 @@ export default function SignUpFormForUsers() {
           </form>
         </div>
       </div>
-      <script src="/login_form.js"></script>
+      <Script src="./login_form.js"></Script>
+      
     </>
   );
 }

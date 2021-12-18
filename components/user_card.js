@@ -1,7 +1,7 @@
 
 import PreviousOffers from "./previous_offers";
 import Card from "react-bootstrap/Card";
-// import PreviousOffers from '../components/previous_offers'
+
 export default function UserCard({
   userData,
   resources,
@@ -159,7 +159,7 @@ export default function UserCard({
                                                 <Card>
                                                   <Card.Body>
                                                     <Card.Title>You interacted by {ele.type_of_activity} on this post</Card.Title>
-                                                   " {item.body} "
+                                                    {item.body} 
                                                   </Card.Body>
                                                 </Card>
                                               </>

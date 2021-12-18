@@ -2,6 +2,7 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/solid'
+import Link from 'next/link'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -30,7 +31,7 @@ export default function MyDropDown() {
           <div className="py-1">
             <Menu.Item>
               {({ active }) => (
-                <a
+                <Link
                   href="/sign_up_user"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -38,12 +39,12 @@ export default function MyDropDown() {
                   )}
                 >
                 Users
-                </a>
+                </Link>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
-                <a
+                <Link
                   href="/sign_up_company"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -51,7 +52,7 @@ export default function MyDropDown() {
                   )}
                 >
                   Companies
-                </a>
+                </Link>
               )}
             </Menu.Item>
 

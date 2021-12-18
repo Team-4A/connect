@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useAuth } from "../contexts/auth";
 import CompanyCard from "../components/companycard";
 import UserCard from "../components/user_card";
 import Header2 from "../components/header2";

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 export default function Footer() {
   return (
     <div>
@@ -7,9 +8,9 @@ export default function Footer() {
         <footer className="justify-around text-gray-600 bg-purple-600 body-font">
           <div className="bg-violet-600">
             <div className="container flex flex-col px-5 py-4 mx-1 sm:flex-row">
-              <a href="/">
-                <img src="logo.png " className="max-h-12" />
-              </a>
+              <Link href="/" passHref>
+                <img src="/logo.png " className="max-h-12" alt="" />
+              </Link>
 
               <div className="flex gap-4 ml-72">
                 <h4 className="text-white">
@@ -29,10 +30,10 @@ export default function Footer() {
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="0"
-                    class="w-5 h-5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="0"
+                    className="w-5 h-5"
                     viewBox="0 0 24 24"
                   >
                     <path

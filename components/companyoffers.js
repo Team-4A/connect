@@ -1,44 +1,47 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-export default function companyOffers({ sliderShow }) {
-  const [state, usestate] = useState(0);
-
+export default function CompanyOffers({ sliderShow }) {
+  const [state, setState] = useState(0);
+  
+    const handleState = () =>{
+        setState(0)
+    }
   return (
     <>
       
       {sliderShow && (
         <div
-          class="fixed inset-0 overflow-hidden"
-          aria-labelledby="slide-over-title"
+          className="fixed inset-0 overflow-hidden"
+          ariaLabelledby="slide-over-title"
           role="dialog"
           aria-modal="true"
         >
-          <div class="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden">
             <div
-              class="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
+              className="absolute inset-0 transition-opacity bg-gray-500 bg-opacity-75"
               aria-hidden="true"
             ></div>
 
-            <div class="fixed inset-y-0 right-0 pl-10 max-w-full flex">
-              <div class="w-screen max-w-md">
-                <div class="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
-                  <div class="flex-1 py-6 overflow-y-auto px-4 sm:px-6">
-                    <div class="flex items-start justify-between">
+            <div className="fixed inset-y-0 right-0 flex max-w-full pl-10">
+              <div className="w-screen max-w-md">
+                <div className="flex flex-col h-full overflow-y-scroll bg-white shadow-xl">
+                  <div className="flex-1 px-4 py-6 overflow-y-auto sm:px-6">
+                    <div className="flex items-start justify-between">
                       <h2
-                        class="text-lg font-medium text-gray-900"
+                        className="text-lg font-medium text-gray-900"
                         id="slide-over-title"
                       >
                         Previous Offers
                       </h2>
-                      <div class="ml-3 h-7 flex items-center">
+                      <div className="flex items-center ml-3 h-7">
                         <button
-                          onClick={() => usestate(0)}
+                          onClick={() => handleState}
                           type="button"
-                          class="-m-2 p-2 text-gray-400 hover:text-gray-500"
+                          className="p-2 -m-2 text-gray-400 hover:text-gray-500"
                         >
-                          <span class="sr-only">Close panel</span>
+                          <span className="sr-only">Close panel</span>
                           <svg
-                            class="h-6 w-6"
+                            className="w-6 h-6"
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
                             viewBox="0 0 24 24"
@@ -46,9 +49,9 @@ export default function companyOffers({ sliderShow }) {
                             aria-hidden="true"
                           >
                             <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth="2"
                               d="M6 18L18 6M6 6l12 12"
                             />
                           </svg>
@@ -56,34 +59,34 @@ export default function companyOffers({ sliderShow }) {
                       </div>
                     </div>
 
-                    <div class="mt-8">
-                      <div class="flow-root">
-                        <ul role="list" class="-my-6 divide-y divide-gray-200">
-                          <li class="py-6 flex">
-                            <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
+                    <div className="mt-8">
+                      <div className="flow-root">
+                        <ul role="list" className="-my-6 divide-y divide-gray-200">
+                          <li className="flex py-6">
+                            <div className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
                               <img
                                 src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg"
                                 alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt."
-                                class="w-full h-full object-center object-cover"
+                                className="object-cover object-center w-full h-full"
                               />
                             </div>
 
-                            <div class="ml-4 flex-1 flex flex-col">
+                            <div className="flex flex-col flex-1 ml-4">
                               <div>
-                                <div class="flex justify-between text-base font-medium text-gray-900">
+                                <div className="flex justify-between text-base font-medium text-gray-900">
                                   <h3>
                                     <a href="#">Throwback Hip Bag</a>
                                   </h3>
                                 </div>
-                                <p class="mt-1 text-sm text-gray-500">Salmon</p>
+                                <p className="mt-1 text-sm text-gray-500">Salmon</p>
                               </div>
-                              <div class="flex-1 flex items-end justify-between text-sm">
-                                <p class="text-gray-500">Qty 1</p>
+                              <div className="flex items-end justify-between flex-1 text-sm">
+                                <p className="text-gray-500">Qty 1</p>
 
-                                <div class="flex">
+                                <div className="flex">
                                   <button
                                     type="button"
-                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                    className="font-medium text-indigo-600 hover:text-indigo-500"
                                   >
                                     Remove
                                   </button>
@@ -92,31 +95,31 @@ export default function companyOffers({ sliderShow }) {
                             </div>
                           </li>
 
-                          <li class="py-6 flex">
-                            <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
+                          <li className="flex py-6">
+                            <div className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
                               <img
                                 src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
                                 alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                class="w-full h-full object-center object-cover"
+                                className="object-cover object-center w-full h-full"
                               />
                             </div>
 
-                            <div class="ml-4 flex-1 flex flex-col">
+                            <div className="flex flex-col flex-1 ml-4">
                               <div>
-                                <div class="flex justify-between text-base font-medium text-gray-900">
+                                <div className="flex justify-between text-base font-medium text-gray-900">
                                   <h3>
                                     <a href="#">Medium Stuff Satchel</a>
                                   </h3>
                                 </div>
-                                <p class="mt-1 text-sm text-gray-500">Blue</p>
+                                <p className="mt-1 text-sm text-gray-500">Blue</p>
                               </div>
-                              <div class="flex-1 flex items-end justify-between text-sm">
-                                <p class="text-gray-500">Qty 1</p>
+                              <div className="flex items-end justify-between flex-1 text-sm">
+                                <p className="text-gray-500">Qty 1</p>
 
-                                <div class="flex">
+                                <div className="flex">
                                   <button
                                     type="button"
-                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                    className="font-medium text-indigo-600 hover:text-indigo-500"
                                   >
                                     Remove
                                   </button>
@@ -124,31 +127,31 @@ export default function companyOffers({ sliderShow }) {
                               </div>
                             </div>
                           </li>
-                          <li class="py-6 flex">
-                            <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
+                          <li className="flex py-6">
+                            <div className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
                               <img
                                 src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
                                 alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                class="w-full h-full object-center object-cover"
+                                className="object-cover object-center w-full h-full"
                               />
                             </div>
 
-                            <div class="ml-4 flex-1 flex flex-col">
+                            <div className="flex flex-col flex-1 ml-4">
                               <div>
-                                <div class="flex justify-between text-base font-medium text-gray-900">
+                                <div className="flex justify-between text-base font-medium text-gray-900">
                                   <h3>
                                     <a href="#">Medium Stuff Satchel</a>
                                   </h3>
                                 </div>
-                                <p class="mt-1 text-sm text-gray-500">Blue</p>
+                                <p className="mt-1 text-sm text-gray-500">Blue</p>
                               </div>
-                              <div class="flex-1 flex items-end justify-between text-sm">
-                                <p class="text-gray-500">Qty 1</p>
+                              <div className="flex items-end justify-between flex-1 text-sm">
+                                <p className="text-gray-500">Qty 1</p>
 
-                                <div class="flex">
+                                <div className="flex">
                                   <button
                                     type="button"
-                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                    className="font-medium text-indigo-600 hover:text-indigo-500"
                                   >
                                     Remove
                                   </button>
@@ -156,31 +159,31 @@ export default function companyOffers({ sliderShow }) {
                               </div>
                             </div>
                           </li>
-                          <li class="py-6 flex">
-                            <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
+                          <li className="flex py-6">
+                            <div className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
                               <img
                                 src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
                                 alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                class="w-full h-full object-center object-cover"
+                                className="object-cover object-center w-full h-full"
                               />
                             </div>
 
-                            <div class="ml-4 flex-1 flex flex-col">
+                            <div className="flex flex-col flex-1 ml-4">
                               <div>
-                                <div class="flex justify-between text-base font-medium text-gray-900">
+                                <div className="flex justify-between text-base font-medium text-gray-900">
                                   <h3>
                                     <a href="#">Medium Stuff Satchel</a>
                                   </h3>
                                 </div>
-                                <p class="mt-1 text-sm text-gray-500">Blue</p>
+                                <p className="mt-1 text-sm text-gray-500">Blue</p>
                               </div>
-                              <div class="flex-1 flex items-end justify-between text-sm">
-                                <p class="text-gray-500">Qty 1</p>
+                              <div className="flex items-end justify-between flex-1 text-sm">
+                                <p className="text-gray-500">Qty 1</p>
 
-                                <div class="flex">
+                                <div className="flex">
                                   <button
                                     type="button"
-                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                    className="font-medium text-indigo-600 hover:text-indigo-500"
                                   >
                                     Remove
                                   </button>
@@ -188,61 +191,61 @@ export default function companyOffers({ sliderShow }) {
                               </div>
                             </div>
                           </li>
-                          <li class="py-6 flex">
-                            <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
+                          <li className="flex py-6">
+                            <div className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
                               <img
                                 src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
                                 alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                class="w-full h-full object-center object-cover"
+                                className="object-cover object-center w-full h-full"
                               />
                             </div>
 
-                            <div class="ml-4 flex-1 flex flex-col">
+                            <div className="flex flex-col flex-1 ml-4">
                               <div>
-                                <div class="flex justify-between text-base font-medium text-gray-900">
+                                <div className="flex justify-between text-base font-medium text-gray-900">
                                   <h3>
                                     <a href="#">Medium Stuff Satchel</a>
                                   </h3>
                                 </div>
-                                <p class="mt-1 text-sm text-gray-500">Blue</p>
+                                <p className="mt-1 text-sm text-gray-500">Blue</p>
                               </div>
-                              <div class="flex-1 flex items-end justify-between text-sm">
-                                <p class="text-gray-500">Qty 1</p>
+                              <div className="flex items-end justify-between flex-1 text-sm">
+                                <p className="text-gray-500">Qty 1</p>
 
-                                <div class="flex">
+                                <div className="flex">
                                   <button
                                     type="button"
-                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                    className="font-medium text-indigo-600 hover:text-indigo-500"
                                   ></button>
                                 </div>
                               </div>
                             </div>
                           </li>
-                          <li class="py-6 flex">
-                            <div class="flex-shrink-0 w-24 h-24 border border-gray-200 rounded-md overflow-hidden">
+                          <li className="flex py-6">
+                            <div className="flex-shrink-0 w-24 h-24 overflow-hidden border border-gray-200 rounded-md">
                               <img
                                 src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-02.jpg"
                                 alt="Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch."
-                                class="w-full h-full object-center object-cover"
+                                className="object-cover object-center w-full h-full"
                               />
                             </div>
 
-                            <div class="ml-4 flex-1 flex flex-col">
+                            <div className="flex flex-col flex-1 ml-4">
                               <div>
-                                <div class="flex justify-between text-base font-medium text-gray-900">
+                                <div className="flex justify-between text-base font-medium text-gray-900">
                                   <h3>
                                     <a href="#">Medium Stuff Satchel</a>
                                   </h3>
                                 </div>
-                                <p class="mt-1 text-sm text-gray-500">Blue</p>
+                                <p className="mt-1 text-sm text-gray-500">Blue</p>
                               </div>
-                              <div class="flex-1 flex items-end justify-between text-sm">
-                                <p class="text-gray-500">Qty 1</p>
+                              <div className="flex items-end justify-between flex-1 text-sm">
+                                <p className="text-gray-500">Qty 1</p>
 
-                                <div class="flex">
+                                <div className="flex">
                                   <button
                                     type="button"
-                                    class="font-medium text-indigo-600 hover:text-indigo-500"
+                                    className="font-medium text-indigo-600 hover:text-indigo-500"
                                   >
                                     Remove
                                   </button>

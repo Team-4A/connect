@@ -75,33 +75,33 @@ export default function CreateOffer({body , id , to_company}) {
                   {body}
                   </p>
                   <div className="flex flex-col gap-2 offerForm ">
-                    <div class="relative">
-                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <div className="rainbow-p-vertical_large rainbow-p-horizontal_xx-large rainbow-m-horizontal_xx-large"></div>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <div classNameName="rainbow-p-vertical_large rainbow-p-horizontal_xx-large rainbow-m-horizontal_xx-large"></div>
                       </div>
-                      <span class="datepicker-toggle">
-                        <span class="datepicker-toggle-button"></span>
-                        <input type="date" class="datepicker-input"  name='date' onChange={(e) => dateHndler(e)} />
+                      <span className="datepicker-toggle">
+                        <span className="datepicker-toggle-button"></span>
+                        <input type="date" className="datepicker-input"  name='date' onChange={(e) => dateHndler(e)} />
                       </span>
                     </div>
 
-                    <div class="form-outline">
-                    <label class="form-label">
+                    <div className="form-outline">
+                    <label className="form-label">
                         Title
                       </label>
                       <input   name="title" onChange={(e) => titleHandler(e)}/>
                       <br/>
-                    <label class="form-label" >
+                    <label className="form-label" >
                         Price
                       </label>
                       <input   type="number" name="price" onChange={(e) => priceHandler(e)}/>
                       <br/>
-                    <label class="form-label" for="textAreaExample">
+                    <label className="form-label" htmlFor="textAreaExample">
                         addtional details
                       </label>
                       <textarea
                         name="addtinal_details"
-                        class="form-control"
+                        className="form-control"
                         id="textAreaExample"
                         rows="4"
                         onChange={(e) => infoHandler(e)}
