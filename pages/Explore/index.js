@@ -7,7 +7,7 @@ import Header2 from '../../components/header2'
 import Footer from '../../components/Footer'
 
 export default function Explore() {
-    const userData = JSON.parse(window.localStorage.getItem("userData"));
+    const userData = JSON.parse(localStorage.getItem("userData"));
     const {resources,loading,error,createPostResource,updatePostResource} = usePostResource()
   
   
@@ -16,7 +16,7 @@ export default function Explore() {
   
   return (
     <div>
-      <Header2 />
+      <Header2 userData={userData}/>
 
       <main className="flex flex-col bg-s-late-300">
         <div className=""> </div>

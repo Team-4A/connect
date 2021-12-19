@@ -55,14 +55,14 @@ export default function Controller(props) {
   } else {
     return (
       <>
-        <Header2 />
+        <Header2 userData={userData}/>
         <UserCard
           resources={offerResources}
           postResources={resources}
           activityResources={activityResources}
           userData={allUserData}
         />
-        <Footer />
+        <Footer userData={userData}/>
       </>
     );
   }
