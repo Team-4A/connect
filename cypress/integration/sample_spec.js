@@ -3,228 +3,171 @@
 //////// landing page test ///////////////////////////////
 
 
-  describe('My secound Test', () => {
-    it('Visits the landing page', () => {
-      cy.visit('/')
-    })
-  })
-
-  describe('My third Test', () => {
-    it('finds the content "welcome"', () => {
-      cy.visit('/')
-  
-      cy.contains('Welcome')
-    })
-  })
-  describe('My third Test', () => {
-    it('finds the content "login"', () => {
-      cy.visit('/')
-  
-      cy.contains('login')
-    })
-  })
-  describe('My third Test', () => {
-    it('finds the content "signup"', () => {
-      cy.visit('/')
-  
-      cy.contains('Sign Up')
-    })
-  })
- 
-  describe('My third Test', () => {
-    it('click the content "signup"', () => {
-      cy.visit('/')
-  
-      cy.contains('Sign Up').click()
-    })
-  })
-
-  describe('My third Test', () => {
-    it('click the content "login"', () => {
-      cy.visit('/')
-  
-      cy.contains('login').click()
-    })
-})
-
-
-describe(' Css test landing page ', () => {
-  it('Gets, check class in landing page types and asserts', () => {
+describe('landing page login  test', () => {
+  it('Visits the landing page (login)', () => {
     cy.visit('/')
+    cy.contains('Welcome')
     cy.get('.container-fluid')
+    cy.contains('Login').click()
   })
 })
-////// landing page test ///////////////////////////////
-
-
-
-//////sign in page  test ///////////////////////////////
-
-describe('sign in Test', () => {
-    it('clicking "sign in " navigates to sign in page ', () => {
-      cy.visit('/')
-  
-      cy.contains('login').click()
-  
-      // Should be on a new URL which includes '/commands/actions'
-      cy.url().should('include', '/login')
-    })
+describe('landing page sign up test', () => {
+  it('Visits the landing page (sign up)', () => {
+    cy.visit('/')
+    Cypress.on('uncaught:exception', (err, runnable) => false)
+    cy.contains('Welcome')
+    cy.contains('Sign up').click()
   })
+})
+
+// ////// landing page test ///////////////////////////////
 
 
 
-  describe('test login welcome',()=>{
-    it ('check if welcome apperas on login page',()=>{
-      cy.visit('/')
-      cy.contains('login').click()
-      cy.contains('Welcome')
+// //////sign in page  test ///////////////////////////////
 
-    })
-
-  })
-  describe('test login button',()=>{
-    it ('check if login page has login button',()=>{
-      cy.visit('/')
-      cy.contains('login').click()
-      cy.contains('Login').click()
-
-    })
-
-  })
-
-describe(' Css test login page ', () => {
-  it('Gets, check class in login page types and asserts', () => {
-    cy.visit('/login')
-
+describe('sign in and sign out test Test', () => {
+  it('clicking "sign in " navigates to sign in page and sign our take you back to home page ', () => {
+    cy.visit('/')
+    cy.contains('Login').click()
+       // Should be on a new URL which includes '/commands/actions'
+    cy.url().should('include', '/login')
+    cy.contains('Welcome')
     cy.get('.h-screen')
+    cy.get("input[name=email]").type("adham@gmail.com");
+    cy.get("input[name=password]").type("adham123").type("{enter}");
+    cy.location("pathname").should("include", "/controller");
+    cy.contains('Recent activites')
+    cy.contains('adham')
+    cy.contains('Logout').click()
+    cy.url().should('include', '/')
   })
 })
 
-describe(' test login  ', () => {
-  it('with correct credtionals', () => {
-    cy.visit('/login')
-    cy.get("input[name=email]").type("adham@gmail.com");
-  cy.get("input[name=password]").type("adham123").type("{enter}");
-  cy.location("pathname").should("include", "/controller");
+/// userr demo test ///////
+//explore page  test ///////////////////////////////
+
+describe('explore pages Test', () => {
+it('check that the about us page have conect team section  ', () => {
+  cy.visit('/login')
+cy.get("input[name=email]").type("adham@gmail.com");
+cy.get("input[name=password]").type("adham123").type("{enter}")
+
+cy.contains('Explore').click()
+cy.url().should('include', '/Explore')
+cy.contains('Make Offer').click()
+cy.get("input[name=date]").type("1212-12-12");
+cy.get("textarea[name=addtinal_details]").type("hello world !")
+cy.contains("send offer").click()
+cy.contains('Comments')
+cy.contains('Comment').click()
+cy.get("input[name=comment]").first().type("hello world !")
+cy.get(".btn").first().click()
+cy.contains("Like").first().click()
+
+
+// about us 
+cy.contains('About us').click()
+cy.url().should('include', '/aboutus')
+cy.contains('Connect Team')
+cy.url().should('include', '/aboutus')
+
+
+///////////// profile page test ///////////////////////////
+cy.contains('Profile').click()
+cy.url().should('include', '/controller')
+cy.contains('Name')
+cy.contains('Email')
+cy.contains('Address')
+cy.contains('Phone Number')
+cy.contains('Recent activites')
+
+///////////// profile page test ///////////////////////////
+
+///////////// complaint page test ///////////////////////////
+cy.contains('Complaints').click()
+cy.url().should('include', '/Complain')
+cy.get("input[name=username]").type("adham");
+cy.get("input[name=companyName]").type("pythonholic");
+cy.get("textarea[name=the_issue]").type("did not get the service")
+cy.contains('submit').click()
+
+///////////// complaint page test ///////////////////////////
+
+
+
+})
+})
+
+///// sign up page//////////////
+
+describe('landing page sign up  test', () => {
+  it('sign up for company test', () => {
+    cy.visit('/')
+    cy.contains('Welcome')
+    cy.get('.container-fluid')
+    cy.contains('Sign up').click()
+    Cypress.on('uncaught:exception', (err, runnable) => false)
+    cy.url().should('include', '/sign_up_user')
+    cy.contains('Company Sign Up')
+    cy.get("input[name=username]").first().type("python comapny");
+    cy.get("input[name=email]").first().type("pythonholic22@gmail.com");
+    cy.get("input[name=password]").first().type("1234567")
+    cy.get("input[name=phonenumber]").first().type("07788665544")
+    // upload file test
+    const filepath = 'company-profile.png'
+    cy.get('input[type="file"]').first().attachFile(filepath)
+    cy.get('input[type="file"]').last().attachFile(filepath)
+    cy.get('button[type="submit"]').first().click()
+  })
+  it('sign up for User test', () => {
+    cy.visit('/')
+    cy.contains('Welcome')
+    cy.get('.container-fluid')
+    cy.contains('Sign up').click()
+    Cypress.on('uncaught:exception', (err, runnable) => false)
+    cy.url().should('include', '/sign_up_user')
+    cy.contains('Company Sign Up')
+    cy.contains('User').click();
+    cy.contains('User').click();
+    cy.get("input[name=username]").first().type("ashrf" ,{force: true});
+    cy.get("input[name=email]").first().type("pythonholic22@gmail.com",{force: true});
+    cy.get("input[name=password]").first().type("1234567",{force: true})
+    cy.get("input[name=phonenumber]").first().type("07788665544",{force: true})
+    cy.get('button[type="submit"]').first().click({force: true})
+    cy.get('button[type="submit"]').first().click({force: true})
   })
 })
-describe(' test login2  ', () => {
-  it('with wrong credtionals', () => {
-    cy.visit('/login')
-    cy.get("input[name=email]").type("adham@a.com");
-  cy.get("input[name=password]").type("adham123").type("{enter}");
-  cy.location("pathname").should("include", "/");
-  })
+
+///// sign up page//////////////
+
+
+/// comapany login test /////
+
+
+describe('explore pages Test', () => {
+it('check that the about us page have conect team section  ', () => {
+  cy.visit('/login')
+cy.get("input[name=email]").type("python@gmail.com");
+cy.get("input[name=password]").type("1234567").type("{enter}")
+
+
+cy.url().should('include', '/controller')
+cy.contains('Name')
+cy.contains('Email')
+cy.contains('Address')
+cy.contains('Phone Number')
+cy.contains('Recent activites')
+
+cy.contains("Create Post").click()
+cy.get("textarea[name=postcontent]").type("hello world !")
+cy.contains("Publish").click()
+cy.get("input").first().type("hello world !")
+cy.contains('Comment').click()
+cy.contains('Like').click()
+cy.contains('Preview Offers').click()
+cy.contains('Approve').click()
+cy.contains('Reject').click()
+
 })
- 
-
-////sign in page  test ///////////////////////////////
-
-
-////controller page  test ///////////////////////////////
-
-describe('controller page Test', () => {
-    it('check if controller page has my story  ', () => {
-      cy.visit('/login')
-    cy.get("input[name=email]").type("adham@gmail.com");
-  cy.get("input[name=password]").type("adham123").type("{enter}")
-  
-      cy.contains('My Story')
-  
-
-    })
-  })
-describe('controller page Test2', () => {
-    it('check if controller page has Recent activites ', () => {
-      cy.visit('/login')
-    cy.get("input[name=email]").type("adham@gmail.com");
-  cy.get("input[name=password]").type("adham123").type("{enter}")
-  
-      cy.contains('Recent activites')
-  
-
-    })
-  })
-describe('controller page Test3', () => {
-    it('test if the user name matches the expected user name ', () => {
-      cy.visit('/login')
-    cy.get("input[name=email]").type("adham@gmail.com");
-  cy.get("input[name=password]").type("adham123").type("{enter}")
-  
-      cy.contains('adham')
-  
-
-    })
-  })
-
-describe('controller page Test4', () => {
-    it('test the logout button  ', () => {
-      cy.visit('/login')
-    cy.get("input[name=email]").type("adham@gmail.com");
-  cy.get("input[name=password]").type("adham123").type("{enter}")
-  
-  cy.contains('Logout').click()
-  cy.url().should('include', '/')
-
-    })
-  })
-
-
-
-
-
-
-////controller page  test ///////////////////////////////
-
-////aboutus page  test ///////////////////////////////
-
-describe('about us page Test4', () => {
-      it('test if clicking the about us  button on the header will take you to about us page  ', () => {
-        cy.visit('/login')
-      cy.get("input[name=email]").type("adham@gmail.com");
-    cy.get("input[name=password]").type("adham123").type("{enter}")
-    
-    cy.contains('About us').click()
-    cy.url().should('include', '/aboutus')
-  
-      })
-    })
-
-    describe('about us page Test5', () => {
-      it('check that the about us page have conect team section  ', () => {
-        cy.visit('/login')
-      cy.get("input[name=email]").type("adham@gmail.com");
-    cy.get("input[name=password]").type("adham123").type("{enter}")
-    
-    cy.contains('About us').click()
-    cy.url().should('include', '/aboutus')
-    cy.contains('Connect Team')
-  
-      })
-    })
-
-
-
-
-////aboutus page  test ///////////////////////////////
-
-
-
-
-
-
-  // describe('My First Test', () => {
-  //   it('Gets, types and asserts', () => {
-  //     cy.visit('http://localhost:3000')
-  
-  //     cy.contains('type').click()
-  
-  //     // Should be on a new URL which includes '/commands/actions'
-  //     cy.url().should('include', '/commands/actions')
-  
-  //     // Get an input, type into it and verify that the value has been updated
-  //     cy.get('.action-email')
-  //       .type('fake@email.com')
-  //       .should('have.value', 'fake@email.com')
-  //   })
-  // })
+})
