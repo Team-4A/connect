@@ -13,7 +13,7 @@ export default function Controller(props) {
   const { offerResources, updateOfferResource } = useOffersHooks();
   const { resources } = usePostResource();
   const { activityResources } = useActivityResources();
-  const [state, setState] = useState(0);
+  const [state, setState] = useState();
   const [allUserData, setAllUserData] = useState([]);
   const [userData, setUserData] = useState({
     id: 0,
@@ -24,7 +24,9 @@ export default function Controller(props) {
     country: "",
     profile_img: "",
   });
+
   const user = JSON.parse(localStorage.getItem("userData"));
+  
 
   useEffect(() => {
     const dealer = async () => {

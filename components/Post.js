@@ -74,15 +74,15 @@ export default function Post({
   const HandleLike = () => {
     
     
-      let data12 = {
+      let data = {
         id: id,
         body: body,
-        creator: userData.user.id,
+        creator: creator,
         likes: [...likes,user_id],
   
       };
       
-      updatePostResource(data12);
+      updatePostResource(data);
      
   };
 

@@ -34,7 +34,7 @@ export default function LoginForm({ login }) {
       ChangeAlertstate(true);
     }
   }, [state]);
-console.log(loginState)
+
   return (
     <div>
       <div className="h-screen md:flex">
@@ -97,7 +97,7 @@ console.log(loginState)
                 className="pl-2 border-none outline-none"
                 type="email"
                 name="email"
-                id=""
+                id="email"
                 placeholder="Email Address"
               />
             </div>
@@ -118,7 +118,7 @@ console.log(loginState)
                 className="pl-2 border-none outline-none"
                 type="password"
                 name="password"
-                id=""
+                id="password"
                 placeholder="Password"
               />
             </div>

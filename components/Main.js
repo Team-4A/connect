@@ -32,7 +32,9 @@ export default function Main() {
               href="/sign_up_user"
               className="inline-flex  justify-center p-[10px] text-sm font-bold text-purple-600 no-underline bg-white border border-gray-300 shadow-sm rounded-3xl  foxtnt-medium w-36 hover:duration-300 hover:rounded-none focus:ring-offset-gray-100 "
             >
-              Sign up
+              <span className="items-center justify-center py-2 ml-8 text-base font-medium text-white no-underline duration-300 cursor-pointer rounded-inline-flex hover:duration-300 hover:text-3xl"> Sign up</span>
+
+              
             </Link>
           </Menu>
 
@@ -41,7 +43,9 @@ export default function Main() {
               href="/login"
               className="inline-flex  justify-center p-[10px] text-sm font-bold text-purple-600 no-underline bg-white border border-gray-300 shadow-sm rounded-3xl  foxtnt-medium w-36 hover:duration-300 hover:rounded-none focus:ring-offset-gray-100 "
             >
-              Login
+              <span className="items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white no-underline duration-300 cursor-pointer rounded-inline-flex hover:duration-300 hover:text-3xl"> Login</span>
+
+              
             </Link>
           </Menu>
           </div>
