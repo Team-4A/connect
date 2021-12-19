@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useAuth } from "../contexts/auth";
 import CompanyCard from "../components/companycard";
 import UserCard from "../components/user_card";
 import Header2 from "../components/header2";
@@ -15,7 +13,7 @@ export default function Controller(props) {
   const { offerResources, updateOfferResource } = useOffersHooks();
   const { resources } = usePostResource();
   const { activityResources } = useActivityResources();
-  const [state, setState] = useState(0);
+  const [state, setState] = useState();
   const [allUserData, setAllUserData] = useState([]);
   const [userData, setUserData] = useState({
     id: 0,
@@ -26,7 +24,9 @@ export default function Controller(props) {
     country: "",
     profile_img: "",
   });
+
   const user = JSON.parse(localStorage.getItem("userData"));
+  
 
   useEffect(() => {
     const dealer = async () => {

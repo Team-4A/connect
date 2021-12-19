@@ -1,5 +1,5 @@
 import React from "react";
-import MyDropDown from "./drop_down_menu";
+
 import Link from "next/link";
 import { Menu, Transition } from "@headlessui/react";
 export default function Main() {
@@ -9,18 +9,18 @@ export default function Main() {
         href="https://fonts.googleapis.com/css?family=Josefin+Sans"
         rel="stylesheet"
       />
-      <div class="container-fluid " />
+      <div className="container-fluid " />
 
-      <div class="background">
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
-        <div class="cube"></div>
+      <div className="background">
+        <div className="cube"></div>
+        <div className="cube"></div>
+        <div className="cube"></div>
+        <div className="cube"></div>
+        <div className="cube"></div>
       </div>
       <header>
-        <section class="header-content ">
-          <div class="">
+        <section className="header-content ">
+          <div className="">
           <div className="flex justify-center "> <img src="./logo.png"/></div>
           <p>
             {" "}
@@ -28,21 +28,25 @@ export default function Main() {
             high quality products designed to make your life easier.
           </p>
           <Menu>
-            <a
+            <Link passHref
               href="/sign_up_user"
               className="inline-flex  justify-center p-[10px] text-sm font-bold text-purple-600 no-underline bg-white border border-gray-300 shadow-sm rounded-3xl  foxtnt-medium w-36 hover:duration-300 hover:rounded-none focus:ring-offset-gray-100 "
             >
-              Sign up
-            </a>
+              <span className="items-center justify-center py-2 ml-8 text-base font-medium text-white no-underline duration-300 cursor-pointer rounded-inline-flex hover:duration-300 hover:text-3xl"> Sign up</span>
+
+              
+            </Link>
           </Menu>
 
           <Menu>
-            <a
+            <Link passHref
               href="/login"
               className="inline-flex  justify-center p-[10px] text-sm font-bold text-purple-600 no-underline bg-white border border-gray-300 shadow-sm rounded-3xl  foxtnt-medium w-36 hover:duration-300 hover:rounded-none focus:ring-offset-gray-100 "
             >
-              Login
-            </a>
+              <span className="items-center justify-center px-4 py-2 ml-8 text-base font-medium text-white no-underline duration-300 cursor-pointer rounded-inline-flex hover:duration-300 hover:text-3xl"> Login</span>
+
+              
+            </Link>
           </Menu>
           </div>
          

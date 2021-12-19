@@ -23,7 +23,7 @@ export default function ComplainsForm() {
             <div>
               <label
                 className="block my-3 font-semibold text-gray-800 text-md"
-                for="username"
+                htmlFor="username"
               >
                 Username
               </label>
@@ -38,7 +38,7 @@ export default function ComplainsForm() {
             <div>
               <label
                 className="block my-3 font-semibold text-gray-800 text-md"
-                for="companyName"
+                htmlFor="companyName"
               >
                 company Name
               </label>
@@ -53,7 +53,7 @@ export default function ComplainsForm() {
             <div>
               <label
                 className="block my-3 font-semibold text-gray-800 text-md"
-                for="password"
+                htmlFor="password"
               >
                 your complain
               </label>
@@ -68,7 +68,7 @@ export default function ComplainsForm() {
             <div>
               <label
                 className="block my-3 font-semibold text-gray-800 text-md"
-                for="confirm"
+                htmlFor="confirm"
               >
                 Additonal data
               </label>

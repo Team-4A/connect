@@ -38,8 +38,7 @@ export default function Connect() {
           Connect
           </p>
           <p className="max-w-2xl mt-4 text-xl text-gray-500 lg:mx-auto">
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in
-            accusamus quisquam.
+          Our website was build to help Users and Compaines to find each other faster and in an easy way , as a Company you can post the services that you can give for the users as a user once yo find what you are looking for you can just creat the offer the company has the right to accept the offer or regect it also the user has the right to complain if oyu got a basd service
           </p>
         </div>
 

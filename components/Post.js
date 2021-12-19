@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import Router from "next/router";
-import Link from "next/link";
-import { CardBody, Avatar, Button, HeartIcon } from "@windmill/react-ui";
-
+import {  Button, HeartIcon } from "@windmill/react-ui";
 import useCommentResources from "../hooks/useCommentResources";
 import useActiviyResources from "../hooks/useActivityResources";
-import { Card } from "react-bootstrap";
-
 import Comment from "./Comment";
-import addCommentModal from "./addCommentModal";
-import Modal from "react-bootstrap/Modal";
-import Form from "react-bootstrap/Form";
 import CreateOffer from "./CreateOffer";
-
 export default function Post({
   
   info,
@@ -83,15 +74,15 @@ export default function Post({
   const HandleLike = () => {
     
     
-      let data12 = {
+      let data = {
         id: id,
         body: body,
-        creator: userData.user.id,
+        creator: creator,
         likes: [...likes,user_id],
   
       };
       
-      updatePostResource(data12);
+      updatePostResource(data);
      
   };
 

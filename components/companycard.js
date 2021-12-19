@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import usePostResources from "../hooks/usePostResources";
-import companyOffers from "./companyoffers";
+import CompanyOffers from "./companyoffers";
 
 export default function CompanyCard({
   allOffers,
@@ -43,7 +43,7 @@ export default function CompanyCard({
       {console.log("all posts in company card---- ", resources)}
 
       {console.log("from compnay card resources ", allOffers)}
-      {sliderShow && <companyOffers sliderShow={sliderShow} />}
+      {sliderShow && <CompanyOffers sliderShow={sliderShow} />}
 
       <link
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
