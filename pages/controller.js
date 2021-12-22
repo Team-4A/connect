@@ -8,25 +8,23 @@ import useOffersHooks from "../hooks/useOffersHooks";
 import useActivityResources from "../hooks/useActivityResources";
 import usePostResource from "../hooks/usePostResources";
 import Footer from "../components/Footer";
+import { useRouter } from 'next/router'
 
-export default function Controller(props) {
+export async function getServerSideProps() {
+
+  // Pass data to the page via props
+  return { props: {} }
+}
+
+
+export default function Controller() {
   const { offerResources, updateOfferResource } = useOffersHooks();
   const { resources } = usePostResource();
   const { activityResources } = useActivityResources();
-  const [state, setState] = useState();
   const [allUserData, setAllUserData] = useState([]);
-  const [userData, setUserData] = useState({
-    id: 0,
-    email: "",
-    username: "",
-    is_company: "",
-    phone_number: "",
-    country: "",
-    profile_img: "",
-  });
+  const router = useRouter()
 
   const user = JSON.parse(localStorage.getItem("userData"));
-  
 
   useEffect(() => {
     const dealer = async () => {
@@ -38,7 +36,9 @@ export default function Controller(props) {
     };
     dealer();
   }, []);
-
+  if (router.isFallback) {
+    return <div>Loading.......</div>
+  }
   if (allUserData && allUserData.is_company) {
     return (
       <>
@@ -69,3 +69,5 @@ export default function Controller(props) {
 
 
 }
+
+

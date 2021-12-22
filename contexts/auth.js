@@ -7,7 +7,7 @@ const tokenUrl = baseUrl + "/api/token/";
 
 const AuthContext = createContext();
 
-export function useAuth() {
+export function useAuth(props) {
   const auth = useContext(AuthContext);
   if (!auth) throw new Error("You forgot AuthProvider!");
   return auth;
@@ -52,6 +52,9 @@ export function AuthProvider(props) {
   }
 
   return (
+    <>
+
     <AuthContext.Provider value={state}>{props.children}</AuthContext.Provider>
+    </>
   );
 }

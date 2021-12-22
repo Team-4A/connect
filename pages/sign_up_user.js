@@ -3,6 +3,7 @@ import { useState } from 'react';
 import SignUpFormForUsers from '../components/NewSignUp'
 
 
+
 export default function SignUpPage() {
     const [state,DisplaySignUp] = useState(0)
     
@@ -14,6 +15,11 @@ export default function SignUpPage() {
     
     
     <SignUpFormForUsers />
+
+
+
+
+    
     
     
     </>

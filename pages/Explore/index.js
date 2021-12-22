@@ -6,19 +6,22 @@ import usePostResource from '../../hooks/usePostResources'
 import Header2 from '../../components/header2'
 import Footer from '../../components/Footer'
 
+
+export async function getServerSideProps() {
+
+  // Pass data to the page via props
+  return { props: {} }
+}
+
 export default function Explore() {
     const userData = JSON.parse(window.localStorage.getItem("userData"));
     const {resources,loading,error,createPostResource,updatePostResource} = usePostResource()
-  
-  
-  
-    
   
   return (
     <div>
       <Header2 />
 
-      <main className="flex flex-col bg-s-late-300">
+      <main className="flex flex-col bg-indigo-100 bg-s-late-300">
         <div className=""> </div>
         <div className="flex flex-col w-3/5 gap-3 m-auto">
           <ul className="timeline">

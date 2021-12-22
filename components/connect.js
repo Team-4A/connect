@@ -30,7 +30,7 @@ const features = [
 
 export default function Connect() {
   return (
-    <div className="py-12 bg-white ">
+    <div className="py-12 bg-indigo-100 ">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="lg:text-center bottom-0.5">
           <h2 className="text-base font-semibold tracking-wide text-indigo-600 uppercase"></h2>

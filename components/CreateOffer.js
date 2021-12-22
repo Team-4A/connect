@@ -77,7 +77,7 @@ export default function CreateOffer({body , id , to_company}) {
                   <div className="flex flex-col gap-2 offerForm ">
                     <div className="relative">
                       <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <div classNameName="rainbow-p-vertical_large rainbow-p-horizontal_xx-large rainbow-m-horizontal_xx-large"></div>
+                        <div className="rainbow-p-vertical_large rainbow-p-horizontal_xx-large rainbow-m-horizontal_xx-large"></div>
                       </div>
                       <span className="datepicker-toggle">
                         <span className="datepicker-toggle-button"></span>

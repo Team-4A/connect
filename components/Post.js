@@ -101,7 +101,7 @@ export default function Post({
   return (
 
     <>
-      <div className="w-full">
+      <div className="w-full ">
         {/* <!-- begin timeline-time --> */}
 
         <div>

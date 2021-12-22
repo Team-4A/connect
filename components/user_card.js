@@ -12,6 +12,7 @@ export default function UserCard({
   
   return (
     <>
+    <div className="bg-indigo-100">
       <link
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
         rel="stylesheet"
@@ -46,37 +47,7 @@ export default function UserCard({
                   </div>
                   {/* <!-- END profile-header-content -->
                  <!-- BEGIN profile-header-tab --> */}
-                  <ul className="profile-header-tab nav nav-tabs">
-                    <li className="nav-item">
-                      <a
-                        href="#profile-post"
-                        className="nav-link active show"
-                        data-toggle="tab"
-                      >
-                        
-                      </a>
-                    </li>
-                    <li className="nav-item">
-                      <a
-                        href="#profile-about"
-                        className="nav-link"
-                        data-toggle="tab"
-                      >
-                        
-                      </a>
-                    </li>
-                    {/* <li className="nav-item"><a href="#profile-photos" className="nav-link" data-toggle="tab">PHOTOS</a></li> */}
-                    {/* <li className="nav-item"><a href="#profile-videos" className="nav-link" data-toggle="tab">VIDEOS</a></li> */}
-                    <li className="nav-item">
-                      <a
-                        href="#profile-friends"
-                        className="nav-link"
-                        data-toggle="tab"
-                      >
-                        
-                      </a>
-                    </li>
-                  </ul>
+                  
                   {/* <!-- END profile-header-tab --> */}
                 </div>
               </div>
@@ -119,7 +90,7 @@ export default function UserCard({
                       </span>
                     </div>
                   </div>
-                  <div className="panel panel-white border-top-pink">
+                  <div className="panel panel-indigo-100 border-top-pink">
                     <div className="panel-heading">
                       <h3 className="panel-title">Previous Offers</h3>
                       <div className="controls pull-right">
@@ -190,6 +161,7 @@ export default function UserCard({
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

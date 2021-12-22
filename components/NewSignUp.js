@@ -1,72 +1,83 @@
 import Head from "next/head";
 import Script from "next/script";
-import $ from 'jquery';
 import axios from "axios";
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import Router from "next/router";
-export default function SignUpFormForUsers() {
-  const [errorState,setError] = useState()
-  const [errorState1,setError1] = useState()
- async function event_handler(e){
-    e.preventDefault();
-    let company_data={
-      username: e.target.username.value,
-      email:e.target.email.value,
-      password:e.target.password.value,
-      phone_number:e.target.phonenumber.value,
-      is_company:true,
-      
-    }
-    
-    // send_user_data = axios.post('https://reqres.in/api/articles',user_data)
-  try{
-    await axios.post(process.env.NEXT_PUBLIC_API_URL_REGISTER,company_data)
-    setError(false)
-    Router.push('/login')
-  }
-  catch(error){
-    setError(error);
+import Footer from './Footer';
 
-  }
-  }
-  
- async function event_handler_user(e){
+
+
+export default function SignUpFormForUsers() {
+  const [errorState, setError] = useState()
+  const [errorState1, setError1] = useState()
+  async function event_handler(e) {
     e.preventDefault();
-    let user_data={
+    let company_data = {
       username: e.target.username.value,
-      email:e.target.email.value,
-      password:e.target.password.value,
-      is_company:false,
-      phone_number:e.target.phonenumber.value
-      
+      email: e.target.email.value,
+      password: e.target.password.value,
+      phone_number: e.target.phonenumber.value,
+      is_company: true,
+
     }
-    try{
-      await axios.post(process.env.NEXT_PUBLIC_API_URL_REGISTER,user_data)
+
+    // send_user_data = axios.post('https://reqres.in/api/articles',user_data)
+    try {
+      await axios.post(process.env.NEXT_PUBLIC_API_URL_REGISTER, company_data)
+      setError(false)
+      Router.push('/login')
+    }
+    catch (error) {
+      setError(error);
+
+    }
+  }
+
+  async function event_handler_user(e) {
+    e.preventDefault();
+    let user_data = {
+      username: e.target.username.value,
+      email: e.target.email.value,
+      password: e.target.password.value,
+      is_company: false,
+      phone_number: e.target.phonenumber.value
+
+    }
+    try {
+      await axios.post(process.env.NEXT_PUBLIC_API_URL_REGISTER, user_data)
       setError1(false)
       Router.push('/login')
     }
-    catch(error){
+    catch (error) {
       setError1(error);
     }
     // send_user_data = axios.post('https://reqres.in/api/articles',user_data)
   }
+  
   return (
     <>
+    <div className="bg-indigo-100" >
       <Head>
-      
-      </Head>
-      <link
+        <link
           href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           rel="stylesheet"
           id="bootstrap-css"
         />
-        
-        <Script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></Script>
-        <Script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></Script>
+
+ 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript" ></script>
+
+
+      </Head>
+      
+
+
+
       {/* <!------ Include the above in your HEAD tag ----------> */}
-      
+
+
       <div className="login-reg-panel">
-      
+
         <div className="login-info-box">
           <h2>Create Your Account To Connect</h2>
           <p>Post Your Service</p>
@@ -91,15 +102,15 @@ export default function SignUpFormForUsers() {
         </div>
 
         <div className="white-panel">
-        <form
-        onSubmit={(e)=>{event_handler(e)}}
-        className="bg-white "
-        action="#"
-        method="POST"
-      >
+          <form
+            onSubmit={(e) => { event_handler(e) }}
+            className="bg-white "
+            action="#"
+            method="POST"
+          >
             <div className="login-show">
               <h2>Company Sign Up</h2>
-              {errorState&& <p className="text-red-600"> The user has already registered</p>}
+              {errorState && <p className="text-red-600"> The user has already registered</p>}
               <input type="text" name="username" placeholder="Full Name" />
               <input type="text" placeholder="Email" name="email" />
               <input type="password" placeholder="Password" name="password" />
@@ -108,8 +119,8 @@ export default function SignUpFormForUsers() {
                 placeholder="Mobile Number"
                 name="phonenumber"
               />
-              <div classNameName="flex items-center gap-3">
-                <label classNameName="">ID Card</label>
+              <div className="flex items-center gap-3">
+                <label className="">ID Card</label>
                 <input
                   id="ID_Card"
                   accept="image/*"
@@ -120,8 +131,8 @@ export default function SignUpFormForUsers() {
                   placeholder="ID Card"
                 />
               </div>
-              <div classNameName="flex items-center gap-3">
-                <label classNameName="">Commerical Certificate</label>
+              <div className="flex items-center gap-3">
+                <label className="">Commerical Certificate</label>
                 <input
                   accept="image/*"
                   id="CommericalCertificate"
@@ -134,19 +145,19 @@ export default function SignUpFormForUsers() {
 
               <button type="submit" value="Sign Up">Sign Up</button>
             </div>
-            </form>
-            
-          
+          </form>
+
+
 
           <form
-            onSubmit={(e)=>{event_handler_user(e)}}
+            onSubmit={(e) => { event_handler_user(e) }}
             className="bg-white "
             action="#"
             method="POST"
           >
             <div className="register-show">
               <h2>User Sign Up</h2>
-              {errorState1&& <p className="text-red-600"> The user has already registered</p>}
+              {errorState1 && <p className="text-red-600"> The user has already registered</p>}
               {/* <input type="text" placeholder="Full Name" name=""/> */}
               <input type="text" placeholder="Full Name" name="username" />
               <input type="text" placeholder="Email" name="email" />
@@ -162,8 +173,12 @@ export default function SignUpFormForUsers() {
           </form>
         </div>
       </div>
-      <Script src="./login_form.js"></Script>
+      <div className="mt-80">
+      <Footer/>
+      </div>
       
+      <Script src="./login_form.js"></Script>
+      </div>
     </>
   );
 }

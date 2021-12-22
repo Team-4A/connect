@@ -40,16 +40,16 @@ export default function CompanyCard({
   
   return (
     <>
+    <div className="bg-indigo-100" >
       {console.log("all posts in company card---- ", resources)}
 
       {console.log("from compnay card resources ", allOffers)}
-      {sliderShow && <CompanyOffers sliderShow={sliderShow} />}
 
       <link
         href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
         rel="stylesheet"
       />
-      <div className="container">
+      <div className="container ">
         <div className="px-4 py-5 row">
           <div className="col-md-12">
             <div id="content" className="content content-full-width">
@@ -139,21 +139,6 @@ export default function CompanyCard({
                   </div>
                   {/* <!-- END profile-header-content -->
                   <!-- BEGIN profile-header-tab --> */}
-                  <ul className="profile-header-tab nav nav-tabs">
-                    <li className="nav-item">
-                      <a
-                        href="#profile-post"
-                        className="nav-link active show"
-                        data-toggle="tab"
-                      >
-                        POSTS
-                      </a>
-                    </li>
-                    {/* <li className="nav-item"><a href="#profile-about" className="nav-link" data-toggle="tab">ABOUT</a></li>
-                     <li className="nav-item"><a href="#profile-photos" className="nav-link" data-toggle="tab">PHOTOS</a></li>
-                     <li className="nav-item"><a href="#profile-videos" className="nav-link" data-toggle="tab">VIDEOS</a></li>
-                     <li className="nav-item"><a href="#profile-friends" className="nav-link" data-toggle="tab">FRIENDS</a></li> */}
-                  </ul>
                   {/* <!-- END profile-header-tab --> */}
                 </div>
               </div>
@@ -331,6 +316,7 @@ export default function CompanyCard({
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

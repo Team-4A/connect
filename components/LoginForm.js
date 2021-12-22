@@ -1,11 +1,9 @@
 import React from "react";
 import Router from "next/router";
-import Link from "next/link";
-import { useAuth } from "../contexts/auth";
 import { useState, useEffect } from "react";
-import axios from "axios";
-export default function LoginForm({ login }) {
-  const { user } = useAuth();
+
+
+export default function LoginForm({ login , user }) {
   const [state, changeState] = useState(0);
   const [alertstate, ChangeAlertstate] = useState(false);
   const [loginState, setLoginState] = useState();
@@ -19,6 +17,7 @@ export default function LoginForm({ login }) {
       };
 
       login(login_info.email, login_info.password, changeState);
+      console.log(user);
       setLoginState(false);
     } catch (err) {
       console.log("you are not authorized ");
