@@ -14,12 +14,12 @@ export async function getServerSideProps() {
 }
 
 export default function Explore() {
-    const userData = JSON.parse(window.localStorage.getItem("userData"));
+    const userData = JSON.parse(localStorage.getItem("userData"));
     const {resources,loading,error,createPostResource,updatePostResource} = usePostResource()
   
   return (
     <div>
-      <Header2 />
+      <Header2 userData={userData}/>
 
       <main className="flex flex-col bg-indigo-100 bg-s-late-300">
         <div className=""> </div>
